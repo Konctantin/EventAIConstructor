@@ -1,0 +1,29 @@
+﻿<Application x:Class="EventIAConstructor.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:converter="clr-namespace:EventIAConstructor.Converters"
+             xmlns:metadata="clr-namespace:EventIAConstructor.EventAIMetadata"
+             xmlns:vm="clr-namespace:EventIAConstructor.ViewModel"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="ViewModel/ActionModel/ActionsDataTemplates.xaml" />
+                <ResourceDictionary Source="ViewModel/EventModel/EventsDataTemplates.xaml" />
+                <ResourceDictionary Source="ViewModel/EventModel/ConditionModel/ConditionDataTemplate.xaml" />
+                <ResourceDictionary Source="Controls/ComboBoxFlags.xaml" />
+
+                <ResourceDictionary>
+
+                    <CollectionViewSource x:Key="EventList" Source="{Binding Source={x:Static vm:EventAIDataBase.EventAIList}}" />
+
+                    <converter:IntToEnumConveter x:Key="IntToEnumConverter" />
+                    <converter:EnumToIntConverter x:Key="EnumToInt" />
+
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,398 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:actions="clr-namespace:EventIAConstructor.ViewModel.ActionModel"
+                    xmlns:metadata="clr-namespace:EventIAConstructor.EventAIMetadata"
+                    xmlns:controls="clr-namespace:EventIAConstructor.Controls"
+                    xmlns:local="clr-namespace:EventIAConstructor"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary Source="../../EventAIMetadata/EnumValues.xaml" />
+        <ResourceDictionary Source="../../Controls/ComboBoxFlags.xaml" />
+        <ResourceDictionary Source="../../Converters/Converters.xaml" />
+
+        <ResourceDictionary>
+                
+            <DataTemplate DataType="{x:Type actions:EmptyActionModel}">
+                <TextBlock Text="{x:Static local:Localization.NO_PARAMS}" HorizontalAlignment="Center" Foreground="#FFFF0000"/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:TextActionModel}">
+                <StackPanel>
+                    <TextBlock Text="TextId 1"/>
+                    <TextBox   Text="{Binding Param1}"/>
+
+                    <TextBlock Text="TextId 2"/>
+                    <TextBox   Text="{Binding Param2}"/>
+
+                    <TextBlock Text="TextId 3"/>
+                    <TextBox   Text="{Binding Param3}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:SetFactionActionModel}">
+                <StackPanel>
+                    <TextBlock Text="FactionId"/>
+                    <TextBox   Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Flags"/>
+                    <controls:ComboBoxFlags  FlagsSource="{x:Type metadata:TemporaryFaction}" SelectedFlag="{Binding Param2}" />
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:MorphActionModel}">
+                <StackPanel>
+                    <TextBlock Text="CreatureEntry"/>
+                    <TextBox   Text="{Binding Param1}"/>
+
+                    <TextBlock Text="ModelId"/>
+                    <TextBox   Text="{Binding Param2}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:SoundActionModel}">
+                <StackPanel>
+                    <TextBlock Text="SoundId"/>
+                    <TextBox   Text="{Binding Param1}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:EmoteActionModel}">
+                <StackPanel>
+                    <TextBlock Text="EmoteId"/>
+                    <TextBox   Text="{Binding Param1}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:RandomSoundActionModel}">
+                <StackPanel>
+                    <TextBlock Text="SoundId 1"/>
+                    <TextBox   Text="{Binding Param1}"/>
+
+                    <TextBlock Text="SoundId 2"/>
+                    <TextBox   Text="{Binding Param2}"/>
+
+                    <TextBlock Text="SoundId 3"/>
+                    <TextBox   Text="{Binding Param3}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:RandomEmoteActionModel}">
+                <StackPanel>
+                    <TextBlock Text="EmoteId 1"/>
+                    <TextBox   Text="{Binding Param1}"/>
+
+                    <TextBlock Text="EmoteId 2"/>
+                    <TextBox   Text="{Binding Param2}"/>
+
+                    <TextBlock Text="EmoteId 3"/>
+                    <TextBox   Text="{Binding Param3}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:CastActionModel}">
+                <StackPanel>
+                    <TextBlock Text="Spell Id"/>
+                    <controls:TextBoxButton Text="{Binding Param1}" DialogType="{x:Type controls:CatalogWindow}" CatalogFormType="SpellForm" />
+
+                    <TextBlock Text="Target"/>
+                    <ComboBox ItemsSource="{Binding Source={StaticResource TargetTypeValues}}" SelectedValue="{Binding Param2, Converter={StaticResource IntToTarget}}" />
+
+                    <TextBlock Text="CastFlags"/>
+                    <controls:ComboBoxFlags FlagsSource="{x:Type metadata:CastFlags}" SelectedFlag="{Binding Param3}" />
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:SummonActionModel}">
+                <StackPanel>
+                    <TextBlock Text="CreatureID Id"/>
+                    <controls:TextBoxButton Text="{Binding Param1}" DialogType="{x:Type controls:CatalogWindow}" CatalogFormType="CreatureForm" />
+
+                    <TextBlock Text="Target"/>
+                    <ComboBox ItemsSource="{Binding Source={StaticResource TargetTypeValues}}" SelectedValue="{Binding Param2, Converter={StaticResource IntToTarget}}" />
+
+                    <TextBlock Text="Duration"/>
+                    <TextBox   Text="{Binding Param3}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:ThreatSinglePctActionModel}">
+                <StackPanel>
+                    <TextBlock Text="Threat (%)"/>
+                    <TextBox   Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Target"/>
+                    <ComboBox ItemsSource="{Binding Source={StaticResource TargetTypeValues}}" SelectedValue="{Binding Param2, Converter={StaticResource IntToTarget}}" />
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:ThreatAllPctActionModel}">
+                <StackPanel>
+                    <TextBlock Text="Threat (%)"/>
+                    <TextBox   Text="{Binding Param1}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:QuestEventActionModel}">
+                <StackPanel>
+                    <TextBlock Text="QuestID"/>
+                    <controls:TextBoxButton Text="{Binding Param1}" DialogType="{x:Type controls:CatalogWindow}" CatalogFormType="QuestForm" />
+
+                    <TextBlock Text="Target"/>
+                    <ComboBox ItemsSource="{Binding Source={StaticResource TargetTypeValues}}" SelectedValue="{Binding Param2, Converter={StaticResource IntToTarget}}" />
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:QuestCastCreatureGOActionModel}">
+                <StackPanel>
+                    <TextBlock Text="CreatureID"/>
+                    <controls:TextBoxButton Text="{Binding Param1}" DialogType="{x:Type controls:CatalogWindow}" CatalogFormType="CreatureForm" />
+
+                    <TextBlock Text="SpellId"/>
+                    <controls:TextBoxButton Text="{Binding Param2}" DialogType="{x:Type controls:CatalogWindow}" CatalogFormType="SpellForm" />
+
+                    <TextBlock Text="Target"/>
+                    <ComboBox ItemsSource="{Binding Source={StaticResource TargetTypeValues}}" SelectedValue="{Binding Param3, Converter={StaticResource IntToTarget}}" />
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:SetUnitFieldActionModel}">
+                <StackPanel>
+                    <TextBlock Text="Field_Number"/>
+                    <TextBox   Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Value"/>
+                    <TextBox   Text="{Binding Param2}"/>
+
+                    <TextBlock Text="Target"/>
+                    <ComboBox ItemsSource="{Binding Source={StaticResource TargetTypeValues}}" SelectedValue="{Binding Param3, Converter={StaticResource IntToTarget}}" />
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:UnitFlagActionModel}">
+                <StackPanel>
+                    <TextBlock Text="Flags"/>
+                    <TextBox   Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Target"/>
+                    <ComboBox ItemsSource="{Binding Source={StaticResource TargetTypeValues}}" SelectedValue="{Binding Param2, Converter={StaticResource IntToTarget}}" />
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:AutoAtackActionModel}">
+                <StackPanel>
+                    <TextBlock Text="AllowAutoAttack"/>
+                    <TextBox   Text="{Binding Param1}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:CombatMovementActionModel}">
+                <StackPanel>
+                    <TextBlock Text="AllowCombatMovement"/>
+                    <TextBox   Text="{Binding Param1}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:SetPhaseActionModel}">
+                <StackPanel>
+                    <TextBlock Text="Phase"/>
+                    <TextBox   Text="{Binding Param1}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:IncPhaseActionModel}">
+                <StackPanel>
+                    <TextBlock Text="Value"/>
+                    <TextBox   Text="{Binding Param1}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:QuestEventAllActionModel}">
+                <StackPanel>
+                    <TextBlock Text="QuestId"/>
+                    <controls:TextBoxButton Text="{Binding Param1}" DialogType="{x:Type controls:CatalogWindow}" CatalogFormType="QuestForm" />
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:CastCreatureGOAllActionModel}">
+                <StackPanel>
+                    <TextBlock Text="QuestId"/>
+                    <controls:TextBoxButton Text="{Binding Param1}" DialogType="{x:Type controls:CatalogWindow}" CatalogFormType="QuestForm" />
+
+                    <TextBlock Text="SpellId"/>
+                    <controls:TextBoxButton Text="{Binding Param2}" DialogType="{x:Type controls:CatalogWindow}" CatalogFormType="SpellForm" />
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:RemoveAurasFromSpellActionModel}">
+                <StackPanel>
+                    <TextBlock Text="Target"/>
+                    <ComboBox ItemsSource="{Binding Source={StaticResource TargetTypeValues}}" SelectedValue="{Binding Param1, Converter={StaticResource IntToTarget}}"/>
+
+                    <TextBlock Text="Spellid"/>
+                    <controls:TextBoxButton Text="{Binding Param2}" DialogType="{x:Type controls:CatalogWindow}" CatalogFormType="SpellForm" />
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:RangetMovementActionModel}">
+                <StackPanel>
+                    <TextBlock Text="Distance"/>
+                    <TextBox   Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Angle"/>
+                    <TextBox   Text="{Binding Param2}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:RandomPhaseActionModel}">
+                <StackPanel>
+                    <TextBlock Text="PhaseId 1"/>
+                    <TextBox   Text="{Binding Param1}"/>
+
+                    <TextBlock Text="PhaseId 2"/>
+                    <TextBox   Text="{Binding Param2}"/>
+
+                    <TextBlock Text="PhaseId 3"/>
+                    <TextBox   Text="{Binding Param3}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:RandomPhaseRangeActionModel}">
+                <StackPanel>
+                    <TextBlock Text="PhaseMin"/>
+                    <TextBox   Text="{Binding Param1}"/>
+
+                    <TextBlock Text="PhaseMax"/>
+                    <TextBox   Text="{Binding Param2}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:SummonIdActionModel}">
+                <StackPanel>
+                    <TextBlock Text="CreatureID"/>
+                    <TextBox   Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Target"/>
+                    <ComboBox ItemsSource="{Binding Source={StaticResource TargetTypeValues}}" SelectedValue="{Binding Param2, Converter={StaticResource IntToTarget}}"/>
+
+                    <TextBlock Text="SummonID"/>
+                    <TextBox   Text="{Binding Param3}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:KilledMonsterActionModel}">
+                <StackPanel>
+                    <TextBlock Text="CreatureID"/>
+                    <TextBox   Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Target"/>
+                    <ComboBox ItemsSource="{Binding Source={StaticResource TargetTypeValues}}" SelectedValue="{Binding Param2, Converter={StaticResource IntToTarget}}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:SetInstDataActionModel}">
+                <StackPanel>
+                    <TextBlock Text="Field"/>
+                    <TextBox   Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Data"/>
+                    <TextBox   Text="{Binding Param2}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:UpdateTemplateActionModel}">
+                <StackPanel>
+                    <TextBlock Text="TemplateId"/>
+                    <TextBox   Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Team"/>
+                    <TextBox   Text="{Binding Param2}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:CallForHelpActionModel}">
+                <StackPanel>
+                    <TextBlock Text="Radius"/>
+                    <TextBox   Text="{Binding Param1}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:SetSheathActionModel}">
+                <StackPanel>
+                    <TextBlock Text="Sheath"/>
+                    <TextBox   Text="{Binding Param1}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:ForceDespawnActionModel}">
+                <StackPanel>
+                    <TextBlock Text="Delay"/>
+                    <TextBox   Text="{Binding Param1}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:SetInviciblityHpLevelActionModel}">
+                <StackPanel>
+                    <TextBlock Text="HP_Level"/>
+                    <TextBox   Text="{Binding Param1}"/>
+
+                    <TextBlock Text="HP_Percent"/>
+                    <TextBox   Text="{Binding Param2}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:ChancedTextActionModel}">
+                <StackPanel>
+                    <TextBlock Text="Chance"/>
+                    <TextBox   Text="{Binding Param1}"/>
+
+                    <TextBlock Text="TextId 1"/>
+                    <TextBox   Text="{Binding Param2}"/>
+
+                    <TextBlock Text="TextId 2"/>
+                    <TextBox   Text="{Binding Param3}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:ThrowAIActionModel}">
+                <StackPanel>
+                    <TextBlock Text="EventType"/>
+                    <TextBox   Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Radius"/>
+                    <TextBox   Text="{Binding Param2}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:SetThrowMaskActionModel}">
+                <StackPanel>
+                    <TextBlock Text="EventTypeMask"/>
+                    <TextBox   Text="{Binding Param1}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:SetStandStateActionModel}">
+                <StackPanel>
+                    <TextBlock Text="StandState"/>
+                    <controls:EnumComboBox EnumSource="{x:Type metadata:StandState}" SelectedEnumValue="{Binding Param1}" />
+                    <TextBox   Text="{Binding Param1}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type actions:BaseActionModel}">
+                <StackPanel>
+                    <TextBlock Text="Param 1"/>
+                    <TextBox   Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Param 2"/>
+                    <TextBox   Text="{Binding Param2}"/>
+
+                    <TextBlock Text="Param 3"/>
+                    <TextBox   Text="{Binding Param3}"/>
+                </StackPanel>
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
