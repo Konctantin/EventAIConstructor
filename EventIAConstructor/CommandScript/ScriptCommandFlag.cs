@@ -3,7 +3,7 @@
 namespace EventIAConstructor.CommandScript
 {
     [Flags]
-    public enum ScriptCommendFlag : int
+    public enum ScriptCommandFlag : int
     {
         BUDDY_AS_TARGET     = 0x01,
         REVERSE_DIRECTION   = 0x02,

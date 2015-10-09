@@ -56,7 +56,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CommandScript\CommandScriptType.cs" />
-    <Compile Include="CommandScript\ScriptCommendFlag.cs" />
+    <Compile Include="CommandScript\ScriptCommandFlag.cs" />
+    <Compile Include="CommandScript\ScriptCommandModel.cs" />
+    <Compile Include="CommandScript\TemporaryFactionFlags.cs" />
     <Compile Include="Common\Controls\ComboBoxFlags.cs" />
     <Compile Include="Common\Controls\EnumCombobox.cs" />
     <Compile Include="Common\Controls\FlagsPresenter.xaml.cs">
@@ -96,6 +98,10 @@
     <Compile Include="EventAIDataBase.cs" />
     <Compile Include="EventAI\ViewModel\EventAIModel.cs" />
     <Compile Include="EventAI\ViewModel\EventModel.cs" />
+    <Page Include="CommandScript\CommandScriptDataTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Common\Controls\ComboBoxFlags.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

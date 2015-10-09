@@ -1,0 +1,220 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:EventIAConstructor.CommandScript">
+
+    <DataTemplate x:Key="CommandScriptType.TALK">
+        <StackPanel>
+            
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.EMOTE">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.FIELD_SET">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.MOVE_TO">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.FLAG_SET">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.FLAG_REMOVE">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.TELEPORT_TO">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.QUEST_EXPLORED">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.KILL_CREDIT">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.RESPAWN_GAMEOBJECT">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.TEMP_SUMMON_CREATURE">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.OPEN_DOOR">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.CLOSE_DOOR">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.ACTIVATE_OBJECT">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.REMOVE_AURA">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.CAST_SPELL">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.PLAY_SOUND">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.CREATE_ITEM">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.DESPAWN_SELF">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.PLAY_MOVIE">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.MOVEMENT">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.SET_ACTIVEOBJECT">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.SET_FACTION">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.MORPH_TO_ENTRY_OR_MODEL">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.MOUNT_TO_ENTRY_OR_MODEL">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.SET_RUN">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.ATTACK_START">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.GO_LOCK_STATE">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.STAND_STATE">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.MODIFY_NPC_FLAGS">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.SEND_TAXI_PATH">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.TERMINATE_SCRIPT">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.PAUSE_WAYPOINTS">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.XP_USER">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.TERMINATE_COND">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.SEND_AI_EVENT">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.SET_FACING">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.MOVE_DYNAMIC">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.SEND_MAIL">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.SET_FLY">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.DESPAWN_GO">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.RESPAWN">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CommandScriptType.NOT_IMPLEMENT">
+        <StackPanel>
+
+        </StackPanel>
+    </DataTemplate>
+</ResourceDictionary>
