@@ -5,91 +5,101 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ResourceDictionary.MergedDictionaries>
 
-        <ResourceDictionary Source="../../../EventAIMetadata/EnumValues.xaml" />
-        <ResourceDictionary Source="../../../Controls/ComboBoxFlags.xaml" />
-        <ResourceDictionary Source="../../../Converters/Converters.xaml" />
+        <ResourceDictionary Source="../EventAIMetadata/EnumValues.xaml" />
+        <ResourceDictionary Source="../Controls/ComboBoxFlags.xaml" />
+        <ResourceDictionary Source="../Converters/Converters.xaml" />
 
         <ResourceDictionary>
-            <DataTemplate DataType="{x:Type cond:EmptyConditionModel}">
-                <TextBlock Text="{x:Static local:Localization.NO_PARAMS}" HorizontalAlignment="Center" Foreground="#FFFF0000"/>
+            <DataTemplate x:Key="ConditionType.NONE">
+                <TextBlock Text="No params!" HorizontalAlignment="Center" Foreground="#FFFF0000"/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type cond:AuraConditionModel}">
+            <DataTemplate x:Key="ConditionType.AURA">
                 <StackPanel>
-                    <TextBlock Text="{x:Static local:Localization.SpellID}"/>
+                    <TextBlock Text="Spell Id"/>
                     <TextBox Text="{Binding CondValue1}"/>
 
-                    <TextBlock Text="{x:Static local:Localization.EffectIndex}"/>
+                    <TextBlock Text="Effect index"/>
                     <TextBox Text="{Binding CondValue2}"/>
                 </StackPanel>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type cond:ItemConditionModel}">
+            <DataTemplate x:Key="ConditionType.ITEM">
                 <StackPanel>
-                    <TextBlock Text="{x:Static local:Localization.ItemID}"/>
+                    <TextBlock Text="Item Id"/>
                     <TextBox Text="{Binding CondValue1}"/>
 
-                    <TextBlock Text="{x:Static local:Localization.Count}"/>
+                    <TextBlock Text="Count"/>
                     <TextBox Text="{Binding CondValue2}"/>
                 </StackPanel>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type cond:ZoneConditionModel}">
+            <DataTemplate x:Key="ConditionType.ITEM_EQUIPPED">
                 <StackPanel>
-                    <TextBlock Text="{x:Static local:Localization.InitialMin}"/>
-                    <TextBox Text="{Binding CondValue1}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate DataType="{x:Type cond:ReputationConditionModel}">
-                <StackPanel>
-                    <TextBlock Text="{x:Static local:Localization.InitialMin}"/>
+                    <TextBlock Text="Item Id"/>
                     <TextBox Text="{Binding CondValue1}"/>
 
-                    <TextBlock Text="{x:Static local:Localization.InitialMax}"/>
+                    <TextBlock Text="Count"/>
                     <TextBox Text="{Binding CondValue2}"/>
                 </StackPanel>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type cond:TeamConditionModel}">
+            <DataTemplate x:Key="ConditionType.ZONEID">
                 <StackPanel>
-                    <TextBlock Text="{x:Static local:Localization.InitialMin}"/>
+                    <TextBlock Text="Initial min"/>
                     <TextBox Text="{Binding CondValue1}"/>
                 </StackPanel>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type cond:SkillConditionModel}">
+            <DataTemplate x:Key="ConditionType.REPUTATION_RANK">
                 <StackPanel>
-                    <TextBlock Text="{x:Static local:Localization.InitialMin}"/>
+                    <TextBlock Text="Initial min"/>
                     <TextBox Text="{Binding CondValue1}"/>
 
-                    <TextBlock Text="{x:Static local:Localization.InitialMax}"/>
+                    <TextBlock Text="Initial max"/>
                     <TextBox Text="{Binding CondValue2}"/>
                 </StackPanel>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type cond:QuestRewardedConditionModel}">
+            <DataTemplate x:Key="ConditionType.TEAM">
                 <StackPanel>
-                    <TextBlock Text="{x:Static local:Localization.InitialMin}"/>
+                    <TextBlock Text="Initial min"/>
                     <TextBox Text="{Binding CondValue1}"/>
                 </StackPanel>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type cond:QuestTakenConditionModel}">
+            <DataTemplate x:Key="ConditionType.SKILL">
                 <StackPanel>
-                    <TextBlock Text="{x:Static local:Localization.InitialMin}"/>
+                    <TextBlock Text="Initial min"/>
+                    <TextBox Text="{Binding CondValue1}"/>
+
+                    <TextBlock Text="Initial max"/>
+                    <TextBox Text="{Binding CondValue2}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="ConditionType.QUESTREWARDED">
+                <StackPanel>
+                    <TextBlock Text="Initial min"/>
                     <TextBox Text="{Binding CondValue1}"/>
                 </StackPanel>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type cond:ActiveEventConditionModel}">
+            <DataTemplate x:Key="ConditionType.QUESTTAKEN">
                 <StackPanel>
-                    <TextBlock Text="{x:Static local:Localization.InitialMin}"/>
+                    <TextBlock Text="Initial min"/>
                     <TextBox Text="{Binding CondValue1}"/>
                 </StackPanel>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type cond:BaseConditionModel}">
+            <DataTemplate x:Key="ConditionType.ACTIVE_EVENT">
+                <StackPanel>
+                    <TextBlock Text="Initial min"/>
+                    <TextBox Text="{Binding CondValue1}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="ConditionType.NOT_IMPLEMENTED">
                 <StackPanel>
                     <TextBlock Text="CondValue1"/>
                     <TextBox Text="{Binding CondValue1}"/>

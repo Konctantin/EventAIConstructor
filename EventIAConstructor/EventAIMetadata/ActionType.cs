@@ -2,7 +2,7 @@
 namespace EventIAConstructor.EventAIMetadata
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum ActionType : int
     {
@@ -51,5 +51,6 @@ namespace EventIAConstructor.EventAIMetadata
         THROW_AI_EVENT              = 45,
         SET_THROW_MASK              = 46,
         SET_STAND_STATE             = 47,
+        CHANGE_MOVEMENT             = 48,
     }
 }

@@ -1,0 +1,439 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:dialogs="clr-namespace:EventIAConstructor.Dialogs"
+                    xmlns:controls="clr-namespace:EventIAConstructor.Controls"
+                    xmlns:local="clr-namespace:EventIAConstructor"
+                    xmlns:vm="clr-namespace:EventIAConstructor.ViewModel"
+                    xmlns:metadata="clr-namespace:EventIAConstructor.EventAIMetadata"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary Source="../EventAIMetadata/EnumValues.xaml" />
+        <ResourceDictionary Source="../Controls/ComboBoxFlags.xaml" />
+        <ResourceDictionary Source="../Converters/Converters.xaml" />
+
+        <ResourceDictionary>
+            <vm:ConditionDataTemplateSelector x:Key="ConditionDataTemplateSelector" />
+
+            <DataTemplate x:Key="EventType.NONE">
+                <TextBlock Text="No params!" HorizontalAlignment="Center" Foreground="#FFFF0000"/>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.TIMER_IN_COMBAT">
+                <StackPanel>
+                    <TextBlock Text="Initial min"/>
+                    <TextBox Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Initial max"/>
+                    <TextBox Text="{Binding Param2}"/>
+
+                    <TextBlock Text="Repeat min"/>
+                    <TextBox Text="{Binding Param3}"/>
+
+                    <TextBlock Text="Repeate max"/>
+                    <TextBox Text="{Binding Param4}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.TIMER_OOC">
+                <StackPanel>
+                    <TextBlock Text="Initial min"/>
+                    <TextBox Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Initial max"/>
+                    <TextBox Text="{Binding Param2}"/>
+
+                    <TextBlock Text="Repeate min"/>
+                    <TextBox Text="{Binding Param3}"/>
+
+                    <TextBlock Text="Repeate max"/>
+                    <TextBox Text="{Binding Param4}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.HP">
+                <StackPanel>
+                    <TextBlock Text="HP max"/>
+                    <TextBox Text="{Binding Param1}"/>
+
+                    <TextBlock Text="HP min"/>
+                    <TextBox Text="{Binding Param2}"/>
+
+                    <TextBlock Text="Repeat min"/>
+                    <TextBox Text="{Binding Param3}"/>
+
+                    <TextBlock Text="Repeate max"/>
+                    <TextBox Text="{Binding Param4}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.MANA">
+                <StackPanel>
+                    <TextBlock Text="Mana max"/>
+                    <TextBox Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Mana min"/>
+                    <TextBox Text="{Binding Param2}"/>
+
+                    <TextBlock Text="Repeat min"/>
+                    <TextBox Text="{Binding Param3}"/>
+
+                    <TextBlock Text="Repeate max"/>
+                    <TextBox Text="{Binding Param4}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.AGGRO">
+                <TextBlock Text="No paramx!" HorizontalAlignment="Center" Foreground="#FFFF0000"/>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.KILL">
+                <StackPanel>
+                    <TextBlock Text="Repeat min"/>
+                    <TextBox Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Repeate max"/>
+                    <TextBox Text="{Binding Param2}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.DEATH">
+                <TextBlock Text="No params!" HorizontalAlignment="Center" Foreground="#FFFF0000"/>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.EVADE">
+                <TextBlock Text="No params!" HorizontalAlignment="Center" Foreground="#FFFF0000"/>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.SPELLHIT">
+                <StackPanel>
+                    <TextBlock Text="Spell Id"/>
+                    <controls:TextBoxButton Text="{Binding Param1}" DialogType="{x:Type dialogs:SpellDialog}" />
+
+                    <TextBlock Text="Schoolmask"/>
+                    <TextBox Text="{Binding Param2}"/>
+
+                    <TextBlock Text="Repeate min"/>
+                    <TextBox Text="{Binding Param3}"/>
+
+                    <TextBlock Text="Repeate max"/>
+                    <TextBox Text="{Binding Param4}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.RANGE">
+                <StackPanel>
+                    <TextBlock Text="Min dist"/>
+                    <TextBox Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Max dist"/>
+                    <TextBox Text="{Binding Param2}"/>
+
+                    <TextBlock Text="Repeate min"/>
+                    <TextBox Text="{Binding Param3}"/>
+
+                    <TextBlock Text="Repeate max"/>
+                    <TextBox Text="{Binding Param4}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.OOC_LOS">
+                <StackPanel>
+                    <TextBlock Text="Hostile or not"/>
+                    <TextBox Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Max allowed range"/>
+                    <TextBox Text="{Binding Param2}"/>
+
+                    <TextBlock Text="Repeate min"/>
+                    <TextBox Text="{Binding Param3}"/>
+
+                    <TextBlock Text="Repeate max"/>
+                    <TextBox Text="{Binding Param4}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.SPAWNED">
+                <TextBlock Text="No params!" HorizontalAlignment="Center" Foreground="#FFFF0000"/>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.TARGET_HP">
+                <StackPanel>
+                    <TextBlock Text="HP max"/>
+                    <TextBox Text="{Binding Param1}"/>
+
+                    <TextBlock Text="HP min"/>
+                    <TextBox Text="{Binding Param2}"/>
+
+                    <TextBlock Text="Repeate min"/>
+                    <TextBox Text="{Binding Param3}"/>
+
+                    <TextBlock Text="Repeate max"/>
+                    <TextBox Text="{Binding Param4}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.TARGET_CASTING">
+                <StackPanel>
+                    <TextBlock Text="Repeate min"/>
+                    <TextBox Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Repeate max"/>
+                    <TextBox Text="{Binding Param2}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.FRIENDLY_HP">
+                <StackPanel>
+                    <TextBlock Text="HP deficit"/>
+                    <TextBox Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Radius"/>
+                    <TextBox Text="{Binding Param2}"/>
+
+                    <TextBlock Text="Repeate min"/>
+                    <TextBox Text="{Binding Param3}"/>
+
+                    <TextBlock Text="Repeate max"/>
+                    <TextBox Text="{Binding Param4}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.FRIENDLY_IS_CC">
+                <StackPanel>
+                    <TextBlock Text="Dispell type"/>
+                    <TextBox Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Radius"/>
+                    <TextBox Text="{Binding Param2}"/>
+
+                    <TextBlock Text="Repeate min"/>
+                    <TextBox Text="{Binding Param3}"/>
+
+                    <TextBlock Text="Repeate max"/>
+                    <TextBox Text="{Binding Param4}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.FRIENDLY_MISSING_BUFF">
+                <StackPanel>
+                    <TextBlock Text="Spell Id"/>
+                    <controls:TextBoxButton Text="{Binding Param1}" DialogType="{x:Type controls:CatalogWindow}" />
+
+                    <TextBlock Text="Radius"/>
+                    <TextBox Text="{Binding Param2}"/>
+
+                    <TextBlock Text="Repeate min"/>
+                    <TextBox Text="{Binding Param3}"/>
+
+                    <TextBlock Text="Repeate max"/>
+                    <TextBox Text="{Binding Param4}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.SUMMONED_UNIT">
+                <StackPanel>
+                    <TextBlock Text="Creature Id"/>
+                    <controls:TextBoxButton Text="{Binding Param1}" DialogType="{x:Type controls:CatalogWindow}" />
+
+                    <TextBlock Text="Repeate min"/>
+                    <TextBox Text="{Binding Param2}"/>
+
+                    <TextBlock Text="Repeate max"/>
+                    <TextBox Text="{Binding Param3}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.TARGET_MANA">
+                <StackPanel>
+                    <TextBlock Text="Mana max"/>
+                    <TextBox Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Mana min"/>
+                    <TextBox Text="{Binding Param2}"/>
+
+                    <TextBlock Text="Repeate min"/>
+                    <TextBox Text="{Binding Param3}"/>
+
+                    <TextBlock Text="Repeate max"/>
+                    <TextBox Text="{Binding Param4}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.REACHED_HOME">
+                <TextBlock Text="No params!" HorizontalAlignment="Center" Foreground="#FFFF0000"/>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.RECEIVE_EMOTE">
+                <StackPanel>
+                    <TextBlock Text="Emote Id"/>
+                    <TextBox Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Condition"/>
+                    <ComboBox ItemsSource="{Binding Source={StaticResource ConditionValues}}"
+                              SelectedValue="{Binding Param2, Converter={StaticResource ConditionIntConverter}}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Width="30" Text="{Binding Converter={StaticResource EnumToInt1}}"/>
+                                    <TextBlock Text="{Binding}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <!--Шаблоны находятся в .\ViewModel\Dictionary\ConditionDataTemplate.xaml-->
+                    <ContentPresenter Content="{Binding Self}"
+                                      ContentTemplateSelector="{StaticResource ConditionDataTemplateSelector}" />
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.AURA">
+                <StackPanel>
+                    <TextBlock Text="Spell Id"/>
+                    <controls:TextBoxButton Text="{Binding Param1}" DialogType="{x:Type controls:CatalogWindow}" />
+
+                    <TextBlock Text="Ammount in stack"/>
+                    <TextBox Text="{Binding Param2}"/>
+
+                    <TextBlock Text="Repeate min"/>
+                    <TextBox Text="{Binding Param3}"/>
+
+                    <TextBlock Text="Repeate max"/>
+                    <TextBox Text="{Binding Param4}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.TARGET_BUFFED">
+                <StackPanel>
+                    <TextBlock Text="Spell Id"/>
+                    <controls:TextBoxButton Text="{Binding Param1}" DialogType="{x:Type controls:CatalogWindow}" />
+
+                    <TextBlock Text="Ammount in stack"/>
+                    <TextBox Text="{Binding Param2}"/>
+
+                    <TextBlock Text="Repeate min"/>
+                    <TextBox Text="{Binding Param3}"/>
+
+                    <TextBlock Text="Repeate max"/>
+                    <TextBox Text="{Binding Param4}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.SUMMONED_JUST_DIED">
+                <StackPanel>
+                    <TextBlock Text="Creature Id"/>
+                    <controls:TextBoxButton Text="{Binding Param1}" DialogType="{x:Type controls:CatalogWindow}" />
+
+                    <TextBlock Text="Repeate min"/>
+                    <TextBox Text="{Binding Param2}"/>
+
+                    <TextBlock Text="Repeate max"/>
+                    <TextBox Text="{Binding Param3}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.SUMMONED_JUST_DESPAWN">
+                <StackPanel>
+                    <TextBlock Text="Creature Id"/>
+                    <controls:TextBoxButton Text="{Binding Param1}" DialogType="{x:Type controls:CatalogWindow}" />
+
+                    <TextBlock Text="Repeate min"/>
+                    <TextBox Text="{Binding Param2}"/>
+
+                    <TextBlock Text="Repeate max"/>
+                    <TextBox Text="{Binding Param3}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.MISSING_AURA">
+                <StackPanel>
+                    <TextBlock Text="Spell Id"/>
+                    <controls:TextBoxButton Text="{Binding Param1}" DialogType="{x:Type controls:CatalogWindow}" />
+
+                    <TextBlock Text="Ammount in stack"/>
+                    <TextBox Text="{Binding Param2}"/>
+
+                    <TextBlock Text="Repeate min"/>
+                    <TextBox Text="{Binding Param3}"/>
+
+                    <TextBlock Text="Repeate max"/>
+                    <TextBox Text="{Binding Param4}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.TARGET_MISSING_AURA">
+                <StackPanel>
+                    <TextBlock Text="Spell Id"/>
+                    <controls:TextBoxButton Text="{Binding Param1}" DialogType="{x:Type controls:CatalogWindow}" />
+
+                    <TextBlock Text="Ammount in stack"/>
+                    <TextBox Text="{Binding Param2}"/>
+
+                    <TextBlock Text="Repeate min"/>
+                    <TextBox Text="{Binding Param3}"/>
+
+                    <TextBlock Text="Repeate max"/>
+                    <TextBox Text="{Binding Param4}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.TIMER_GENERIC">
+                <StackPanel>
+                    <TextBlock Text="Initial min"/>
+                    <TextBox Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Initial max"/>
+                    <TextBox Text="{Binding Param2}"/>
+
+                    <TextBlock Text="Repeate min"/>
+                    <TextBox Text="{Binding Param3}"/>
+
+                    <TextBlock Text="Repeate max"/>
+                    <TextBox Text="{Binding Param4}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.RECEIVE_AI_EVENT">
+                <StackPanel>
+                    <TextBlock Text="AIEventType"/>
+                    <TextBox Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Sender-Entry"/>
+                    <TextBox Text="{Binding Param2}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.ENERGY">
+                <StackPanel>
+                    <TextBlock Text="EnergyMax%"/>
+                    <TextBox Text="{Binding Param1}"/>
+
+                    <TextBlock Text="EnergyMin%"/>
+                    <TextBox Text="{Binding Param2}"/>
+
+                    <TextBlock Text="RepeatMin"/>
+                    <TextBox Text="{Binding Param3}"/>
+
+                    <TextBlock Text="RepeatMax"/>
+                    <TextBox Text="{Binding Param4}"/>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EventType.NOT_IMPLEMENTED">
+                <StackPanel>
+                    <TextBlock Text="Param1"/>
+                    <TextBox Text="{Binding Param1}"/>
+
+                    <TextBlock Text="Param2"/>
+                    <TextBox Text="{Binding Param2}"/>
+
+                    <TextBlock Text="Param3"/>
+                    <TextBox Text="{Binding Param3}"/>
+
+                    <TextBlock Text="Param4"/>
+                    <TextBox Text="{Binding Param4}"/>
+                </StackPanel>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

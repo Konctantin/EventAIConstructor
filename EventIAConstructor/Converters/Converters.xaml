@@ -2,6 +2,6 @@
                     xmlns:converter="clr-namespace:EventIAConstructor.Converters"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <converter:IntToTargetConverter x:Key="IntToTarget" />
-    <converter:EnumToLocalizedText  x:Key="EnumToLocalizedText" />
     <converter:EnumToIntConverter   x:Key="EnumToInt1" />
+    <converter:ConditionIntConverter x:Key="ConditionIntConverter" />
 </ResourceDictionary>

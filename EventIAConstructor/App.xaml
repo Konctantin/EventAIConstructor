@@ -10,9 +10,9 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
 
-                <ResourceDictionary Source="ViewModel/ActionModel/ActionsDataTemplates.xaml" />
-                <ResourceDictionary Source="ViewModel/EventModel/EventsDataTemplates.xaml" />
-                <ResourceDictionary Source="ViewModel/EventModel/ConditionModel/ConditionDataTemplate.xaml" />
+                <ResourceDictionary Source="Templates/ActionsDataTemplates.xaml" />
+                <ResourceDictionary Source="Templates/EventsDataTemplates.xaml" />
+                <ResourceDictionary Source="Templates/ConditionDataTemplate.xaml" />
                 <ResourceDictionary Source="Controls/ComboBoxFlags.xaml" />
 
                 <ResourceDictionary>
@@ -21,6 +21,10 @@
 
                     <converter:IntToEnumConveter x:Key="IntToEnumConverter" />
                     <converter:EnumToIntConverter x:Key="EnumToInt" />
+
+                    <vm:ActionDataTemplateSelector    x:Key="ActionDataTemplateSelector" />
+                    <!--<vm:ConditionDataTemplateSelector x:Key="ConditionDataTemplateSelector" />-->
+                    <vm:EventDataTemplateSelector     x:Key="EventDataTemplateSelector" />
 
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>

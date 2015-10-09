@@ -7,19 +7,19 @@ namespace EventIAConstructor.EventAIMetadata
     public enum EventType : int
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TIMER_IN_COMBAT         = 0,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TIMER_OOC               = 1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         HP                      = 2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MANA                    = 3,
         AGGRO                   = 4,
@@ -47,5 +47,6 @@ namespace EventIAConstructor.EventAIMetadata
         TARGET_MISSING_AURA     = 28,
         TIMER_GENERIC           = 29,
         RECEIVE_AI_EVENT        = 30,
+        ENERGY                  = 31,
     }
 }

@@ -1,24 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EventIAConstructor.EventAIMetadata;
+using System;
 using System.Windows.Data;
 
 namespace EventIAConstructor.Converters
 {
-    public class EnumToIntConverter : IValueConverter
+    public class ConditionIntConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            if (value == null) return 0;
-            if (value is string) return 0;
-            return (int)value;
+            if (value is int)
+                return (ConditionType)(int)value;
+            return Binding.DoNothing;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            throw new NotImplementedException();
+            if (value is ConditionType)
+                return (int)(ConditionType)value;
+            return Binding.DoNothing;
         }
     }
 }

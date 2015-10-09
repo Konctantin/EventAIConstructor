@@ -1,6 +1,4 @@
 ﻿using System.Windows;
-using EventIAConstructor.ViewModel.ActionModel;
-using System.Diagnostics;
 
 namespace EventIAConstructor
 {

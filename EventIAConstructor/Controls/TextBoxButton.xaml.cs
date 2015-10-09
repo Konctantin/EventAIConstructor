@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EventIAConstructor.Dialogs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,8 +35,6 @@ namespace EventIAConstructor.Controls
 
         public static DependencyProperty DialogTypeProperty = DependencyProperty.Register("DialogType", typeof(Type), typeof(TextBoxButton));
 
-        public static DependencyProperty CatalogFormTypeProperty = DependencyProperty.Register("CatalogFormType", typeof(CatalogFormType), typeof(TextBoxButton));
-
         public TextBoxButton()
         {
             InitializeComponent();
@@ -53,21 +52,21 @@ namespace EventIAConstructor.Controls
             set { SetValue(DialogTypeProperty, value); }
         }
 
-        public CatalogFormType CatalogFormType
-        {
-            get { return (CatalogFormType)GetValue(CatalogFormTypeProperty); }
-            set { SetValue(CatalogFormTypeProperty, value); }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)        
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (!(DialogType.IsSubclassOf(typeof(Window))))
                 throw new Exception();
 
-            var window = (Window)Activator.CreateInstance(this.DialogType);
+            var window = (Window)Activator.CreateInstance(DialogType);
+            if (!(window is IDialog))
+            {
+                throw new Exception();
+            }
             window.Owner = App.Current.MainWindow;
             window.Title = textBox.Text;
             window.ShowDialog();
+
+            Text = 5.ToString();
         }
     }
 }

@@ -8,7 +8,7 @@
             <TextBlock Width="70" Text="{Binding RawValue, StringFormat={} 0x{0:X8}}" Foreground="#FFA5129F"/>
             <TextBlock Text="{Binding Value}"/>
         </StackPanel>
-        
+
     </DataTemplate>
 
     <Style TargetType="{x:Type controls:ComboBoxFlags}">
@@ -44,9 +44,9 @@
 
                         <Popup Placement="Bottom" IsOpen="{TemplateBinding IsDropDownOpen}" PopupAnimation="Slide">
                             <Grid SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}"
-                      Background="{Binding Path=Background, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:ComboBoxFlags}}">
+                                    Background="{Binding Path=Background, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:ComboBoxFlags}}">
                                 <Border BorderThickness="1"
-                            BorderBrush="{Binding Path=BorderBrush, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:ComboBoxFlags}}"/>
+                                    BorderBrush="{Binding Path=BorderBrush, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:ComboBoxFlags}}"/>
                                 <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True" DataContext="{Binding}">
                                     <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
                                 </ScrollViewer>

@@ -76,8 +76,8 @@ namespace EventIAConstructor.Controls
         {
             this.control   = control;
             this.isChecked = isChecked;
-            this.RawValue  = (int)value;
-            this.Value     = value;
+            RawValue = (int)value;
+            Value = value;
         }
 
         private ComboBoxFlags control;
