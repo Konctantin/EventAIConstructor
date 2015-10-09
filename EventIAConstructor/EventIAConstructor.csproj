@@ -55,81 +55,76 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controls\ComboBoxFlags.cs" />
-    <Compile Include="Controls\EnumCombobox.cs" />
-    <Compile Include="Controls\FlagsPresenter.xaml.cs">
+    <Compile Include="CommandScript\CommandScriptType.cs" />
+    <Compile Include="CommandScript\ScriptCommendFlag.cs" />
+    <Compile Include="Common\Controls\ComboBoxFlags.cs" />
+    <Compile Include="Common\Controls\EnumCombobox.cs" />
+    <Compile Include="Common\Controls\FlagsPresenter.xaml.cs">
       <DependentUpon>FlagsPresenter.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\TextBoxButton.xaml.cs">
+    <Compile Include="Common\Controls\TextBoxButton.xaml.cs">
       <DependentUpon>TextBoxButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\CatalogWindow.xaml.cs">
-      <DependentUpon>CatalogWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Converters\EnumToIntConverter.cs" />
-    <Compile Include="Dialogs\CreatureDialog.xaml.cs">
+    <Compile Include="Common\Converters\EnumToIntConverter.cs" />
+    <Compile Include="Common\Dialogs\CreatureDialog.xaml.cs">
       <DependentUpon>CreatureDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\GameobjectDialog.xaml.cs">
+    <Compile Include="Common\Dialogs\GameobjectDialog.xaml.cs">
       <DependentUpon>GameobjectDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\IDialog.cs" />
-    <Compile Include="Dialogs\ItemsDialog.xaml.cs">
+    <Compile Include="Common\Dialogs\IDialog.cs" />
+    <Compile Include="Common\Dialogs\ItemsDialog.xaml.cs">
       <DependentUpon>ItemsDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\QuestDialog.xaml.cs">
+    <Compile Include="Common\Dialogs\QuestDialog.xaml.cs">
       <DependentUpon>QuestDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\SpellDialog.xaml.cs">
+    <Compile Include="Common\Dialogs\SpellDialog.xaml.cs">
       <DependentUpon>SpellDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EventAIMetadata\ActionType.cs" />
-    <Compile Include="EventAIMetadata\CastFlags.cs" />
-    <Compile Include="EventAIMetadata\ConditionType.cs" />
-    <Compile Include="EventAIMetadata\EventFlags.cs" />
-    <Compile Include="EventAIMetadata\EventType.cs" />
-    <Compile Include="EventAIMetadata\StandState.cs" />
-    <Compile Include="EventAIMetadata\TargetType.cs" />
-    <Compile Include="EventAIMetadata\TemporaryFaction.cs" />
-    <Compile Include="ViewModel\ActionModel.cs" />
-    <Compile Include="ViewModel\DataTemplateSelector.cs" />
-    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="EventAI\Metatdata\ActionType.cs" />
+    <Compile Include="EventAI\Metatdata\CastFlags.cs" />
+    <Compile Include="EventAI\Metatdata\ConditionType.cs" />
+    <Compile Include="EventAI\Metatdata\EventFlags.cs" />
+    <Compile Include="EventAI\Metatdata\EventType.cs" />
+    <Compile Include="EventAI\Metatdata\StandState.cs" />
+    <Compile Include="EventAI\Metatdata\TargetType.cs" />
+    <Compile Include="EventAI\Metatdata\TemporaryFaction.cs" />
+    <Compile Include="EventAI\ViewModel\ActionModel.cs" />
+    <Compile Include="EventAI\ViewModel\DataTemplateSelector.cs" />
+    <Compile Include="Common\BaseViewModel.cs" />
     <Compile Include="EventAIDataBase.cs" />
-    <Compile Include="ViewModel\EventAIModel.cs" />
-    <Compile Include="ViewModel\EventModel.cs" />
-    <Page Include="Controls\ComboBoxFlags.xaml">
+    <Compile Include="EventAI\ViewModel\EventAIModel.cs" />
+    <Compile Include="EventAI\ViewModel\EventModel.cs" />
+    <Page Include="Common\Controls\ComboBoxFlags.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\FlagsPresenter.xaml">
+    <Page Include="Common\Controls\FlagsPresenter.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\TextBoxButton.xaml">
+    <Page Include="Common\Controls\TextBoxButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\CatalogWindow.xaml">
+    <Page Include="Common\Dialogs\CreatureDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Dialogs\CreatureDialog.xaml">
+    <Page Include="Common\Dialogs\GameobjectDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Dialogs\GameobjectDialog.xaml">
+    <Page Include="Common\Dialogs\ItemsDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Dialogs\ItemsDialog.xaml">
+    <Page Include="Common\Dialogs\QuestDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Dialogs\QuestDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Dialogs\SpellDialog.xaml">
+    <Page Include="Common\Dialogs\SpellDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -145,15 +140,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Templates\ActionsDataTemplates.xaml">
+    <Page Include="EventAI\Templates\ActionsDataTemplates.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Templates\ConditionDataTemplate.xaml">
+    <Page Include="EventAI\Templates\ConditionDataTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Templates\EventsDataTemplates.xaml">
+    <Page Include="EventAI\Templates\EventsDataTemplates.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

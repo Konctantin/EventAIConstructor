@@ -1,9 +1,9 @@
 ﻿<Window
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:metadata="clr-namespace:EventIAConstructor.EventAIMetadata"
-    xmlns:vm="clr-namespace:EventIAConstructor.ViewModel"
-    xmlns:controls="clr-namespace:EventIAConstructor.Controls"
+    xmlns:metadata="clr-namespace:EventIAConstructor.EventAI.Metadata"
+    xmlns:vm="clr-namespace:EventIAConstructor"
+    xmlns:controls="clr-namespace:EventIAConstructor.Common.Controls"
     x:Class="EventIAConstructor.MainWindow"
     Title="MainWindow"
     Height="532"

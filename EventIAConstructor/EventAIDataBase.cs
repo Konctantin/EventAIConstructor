@@ -1,8 +1,9 @@
-﻿using EventIAConstructor.EventAIMetadata;
+﻿using EventIAConstructor.EventAI.Metadata;
+using EventIAConstructor.EventAI.ViewModel;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace EventIAConstructor.ViewModel
+namespace EventIAConstructor
 {
     public class EventAIDataBase
     {

@@ -11,7 +11,7 @@ namespace EventIAConstructor
         {
             InitializeComponent();
 
-            cbFlags.FlagsSource = typeof(EventAIMetadata.EventFlags);
+            cbFlags.FlagsSource = typeof(EventAI.Metadata.EventFlags);
             cbFlags.SelectedFlag = 5;
         }
 
