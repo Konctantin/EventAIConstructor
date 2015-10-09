@@ -22,11 +22,11 @@ namespace EventIAConstructor.Controls
             set { SetValue(HeaderProperty, value); }
         }
 
-        #endregion
+        #endregion HeaderProperty
 
         #region DataSource
 
-        public static DependencyProperty DataSourceProperty = 
+        public static DependencyProperty DataSourceProperty =
             DependencyProperty.Register("DataSource", typeof(Type), typeof(FlagsPresenter),
                 new PropertyMetadata(default(Type), DataSourcePropertyChanged));
 
@@ -47,19 +47,15 @@ namespace EventIAConstructor.Controls
                     foreach (var enumValue in Enum.GetValues((Type)e.NewValue))
                     {
                         var checkBox = new CheckBox();
-
-                        #warning todo: get name form resources
                         checkBox.Content = enumValue.ToString();
-
                         checkBox.Tag = enumValue;
-
                         checkBox.Checked += (o, r) =>
                         {
                             var val = (int)flagsPresenter.GetValue(ValueProperty);
                             var flagValue = (int)(o as CheckBox).Tag;
                             val |= flagValue;
 
-                            if (flagValue == 0u)
+                            if (flagValue == 0)
                                 val = 0;
 
                             flagsPresenter.SetValue(ValueProperty, val);
@@ -79,15 +75,15 @@ namespace EventIAConstructor.Controls
 
                         flagsPresenter.panel.Children.Add(checkBox);
                     }
-                } 
+                }
             }
         }
 
-        #endregion
+        #endregion DataSource
 
         #region Value
 
-        public static DependencyProperty ValueProperty = 
+        public static DependencyProperty ValueProperty =
             DependencyProperty.Register("Value", typeof(int), typeof(FlagsPresenter),
                 new PropertyMetadata(0, ValuePropertyChanged));
 
@@ -115,7 +111,7 @@ namespace EventIAConstructor.Controls
             }
         }
 
-        #endregion
+        #endregion Value
 
         public FlagsPresenter()
         {

@@ -5,8 +5,8 @@ namespace EventIAConstructor.ViewModel
 {
     public class ActionModel : BaseViewModel
     {
-        ActionType type;
-        int param1, param2, param3;
+        private ActionType type;
+        private int param1, param2, param3;
 
         public ActionModel Self { get; private set; }
 

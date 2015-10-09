@@ -1,114 +1,103 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:controls="clr-namespace:EventIAConstructor.Controls"
                     xmlns:local="clr-namespace:EventIAConstructor"
-                    xmlns:cond="clr-namespace:EventIAConstructor.ViewModel.EventModel.ConditionModel"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <ResourceDictionary.MergedDictionaries>
+    <DataTemplate x:Key="ConditionType.NONE">
+        <TextBlock Text="No params!" HorizontalAlignment="Center" Foreground="#FFFF0000" />
+    </DataTemplate>
 
-        <ResourceDictionary Source="../EventAIMetadata/EnumValues.xaml" />
-        <ResourceDictionary Source="../Controls/ComboBoxFlags.xaml" />
-        <ResourceDictionary Source="../Converters/Converters.xaml" />
+    <DataTemplate x:Key="ConditionType.AURA">
+        <StackPanel>
+            <TextBlock Text="Spell Id" />
+            <TextBox Text="{Binding Param3}" />
 
-        <ResourceDictionary>
-            <DataTemplate x:Key="ConditionType.NONE">
-                <TextBlock Text="No params!" HorizontalAlignment="Center" Foreground="#FFFF0000"/>
-            </DataTemplate>
+            <TextBlock Text="Effect index" />
+            <TextBox Text="{Binding Param4}" />
+        </StackPanel>
+    </DataTemplate>
 
-            <DataTemplate x:Key="ConditionType.AURA">
-                <StackPanel>
-                    <TextBlock Text="Spell Id"/>
-                    <TextBox Text="{Binding CondValue1}"/>
+    <DataTemplate x:Key="ConditionType.ITEM">
+        <StackPanel>
+            <TextBlock Text="Item Id" />
+            <TextBox Text="{Binding Param3}" />
 
-                    <TextBlock Text="Effect index"/>
-                    <TextBox Text="{Binding CondValue2}"/>
-                </StackPanel>
-            </DataTemplate>
+            <TextBlock Text="Count" />
+            <TextBox Text="{Binding Param4}" />
+        </StackPanel>
+    </DataTemplate>
 
-            <DataTemplate x:Key="ConditionType.ITEM">
-                <StackPanel>
-                    <TextBlock Text="Item Id"/>
-                    <TextBox Text="{Binding CondValue1}"/>
+    <DataTemplate x:Key="ConditionType.ITEM_EQUIPPED">
+        <StackPanel>
+            <TextBlock Text="Item Id" />
+            <TextBox Text="{Binding Param3}" />
 
-                    <TextBlock Text="Count"/>
-                    <TextBox Text="{Binding CondValue2}"/>
-                </StackPanel>
-            </DataTemplate>
+            <TextBlock Text="Count" />
+            <TextBox Text="{Binding Param4}" />
+        </StackPanel>
+    </DataTemplate>
 
-            <DataTemplate x:Key="ConditionType.ITEM_EQUIPPED">
-                <StackPanel>
-                    <TextBlock Text="Item Id"/>
-                    <TextBox Text="{Binding CondValue1}"/>
+    <DataTemplate x:Key="ConditionType.ZONEID">
+        <StackPanel>
+            <TextBlock Text="Initial min" />
+            <TextBox Text="{Binding Param3}" />
+        </StackPanel>
+    </DataTemplate>
 
-                    <TextBlock Text="Count"/>
-                    <TextBox Text="{Binding CondValue2}"/>
-                </StackPanel>
-            </DataTemplate>
+    <DataTemplate x:Key="ConditionType.REPUTATION_RANK">
+        <StackPanel>
+            <TextBlock Text="Initial min" />
+            <TextBox Text="{Binding Param3}" />
 
-            <DataTemplate x:Key="ConditionType.ZONEID">
-                <StackPanel>
-                    <TextBlock Text="Initial min"/>
-                    <TextBox Text="{Binding CondValue1}"/>
-                </StackPanel>
-            </DataTemplate>
+            <TextBlock Text="Initial max" />
+            <TextBox Text="{Binding Param4}" />
+        </StackPanel>
+    </DataTemplate>
 
-            <DataTemplate x:Key="ConditionType.REPUTATION_RANK">
-                <StackPanel>
-                    <TextBlock Text="Initial min"/>
-                    <TextBox Text="{Binding CondValue1}"/>
+    <DataTemplate x:Key="ConditionType.TEAM">
+        <StackPanel>
+            <TextBlock Text="Initial min" />
+            <TextBox Text="{Binding Param3}" />
+        </StackPanel>
+    </DataTemplate>
 
-                    <TextBlock Text="Initial max"/>
-                    <TextBox Text="{Binding CondValue2}"/>
-                </StackPanel>
-            </DataTemplate>
+    <DataTemplate x:Key="ConditionType.SKILL">
+        <StackPanel>
+            <TextBlock Text="Initial min" />
+            <TextBox Text="{Binding Param3}" />
 
-            <DataTemplate x:Key="ConditionType.TEAM">
-                <StackPanel>
-                    <TextBlock Text="Initial min"/>
-                    <TextBox Text="{Binding CondValue1}"/>
-                </StackPanel>
-            </DataTemplate>
+            <TextBlock Text="Initial max" />
+            <TextBox Text="{Binding Param4}" />
+        </StackPanel>
+    </DataTemplate>
 
-            <DataTemplate x:Key="ConditionType.SKILL">
-                <StackPanel>
-                    <TextBlock Text="Initial min"/>
-                    <TextBox Text="{Binding CondValue1}"/>
+    <DataTemplate x:Key="ConditionType.QUESTREWARDED">
+        <StackPanel>
+            <TextBlock Text="Initial min" />
+            <TextBox Text="{Binding Param3}" />
+        </StackPanel>
+    </DataTemplate>
 
-                    <TextBlock Text="Initial max"/>
-                    <TextBox Text="{Binding CondValue2}"/>
-                </StackPanel>
-            </DataTemplate>
+    <DataTemplate x:Key="ConditionType.QUESTTAKEN">
+        <StackPanel>
+            <TextBlock Text="Initial min" />
+            <TextBox Text="{Binding Param3}" />
+        </StackPanel>
+    </DataTemplate>
 
-            <DataTemplate x:Key="ConditionType.QUESTREWARDED">
-                <StackPanel>
-                    <TextBlock Text="Initial min"/>
-                    <TextBox Text="{Binding CondValue1}"/>
-                </StackPanel>
-            </DataTemplate>
+    <DataTemplate x:Key="ConditionType.ACTIVE_EVENT">
+        <StackPanel>
+            <TextBlock Text="Event Id" />
+            <TextBox Text="{Binding Param3}" />
+        </StackPanel>
+    </DataTemplate>
 
-            <DataTemplate x:Key="ConditionType.QUESTTAKEN">
-                <StackPanel>
-                    <TextBlock Text="Initial min"/>
-                    <TextBox Text="{Binding CondValue1}"/>
-                </StackPanel>
-            </DataTemplate>
+    <DataTemplate x:Key="ConditionType.NOT_IMPLEMENTED">
+        <StackPanel>
+            <TextBlock Text="Param3" />
+            <TextBox Text="{Binding Param3}" />
 
-            <DataTemplate x:Key="ConditionType.ACTIVE_EVENT">
-                <StackPanel>
-                    <TextBlock Text="Initial min"/>
-                    <TextBox Text="{Binding CondValue1}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ConditionType.NOT_IMPLEMENTED">
-                <StackPanel>
-                    <TextBlock Text="CondValue1"/>
-                    <TextBox Text="{Binding CondValue1}"/>
-
-                    <TextBlock Text="CondValue2"/>
-                    <TextBox Text="{Binding CondValue2}"/>
-                </StackPanel>
-            </DataTemplate>
-
-        </ResourceDictionary>
-    </ResourceDictionary.MergedDictionaries>
+            <TextBlock Text="Param4" />
+            <TextBox Text="{Binding Param4}" />
+        </StackPanel>
+    </DataTemplate>
 </ResourceDictionary>

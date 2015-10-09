@@ -21,11 +21,11 @@ namespace EventIAConstructor.Controls
             if (e.NewValue != e.OldValue)
             {
                 var control = d as EnumComboBox;
-                if (control.EnumSource != null)
+                if (control.ItemsSource != null)
                 {
-                    foreach (var item in Enum.GetValues(control.EnumSource))
+                    foreach (var item in control.ItemsSource as IEnumerable<EnumComboBoxItem>)
                     {
-                        if ((int)item == (int)e.NewValue)
+                        if (item.Value == (int)e.NewValue)
                         {
                             control.SelectedValue = item;
                         }
@@ -43,16 +43,16 @@ namespace EventIAConstructor.Controls
 
                 if (type != null)
                 {
-                    var list = new List<object>();
+                    var list = new List<EnumComboBoxItem>();
                     foreach (var item in Enum.GetValues(type))
-                        list.Add(item);
+                        list.Add(new EnumComboBoxItem((int)item, item.ToString()));
 
                     control.ItemsSource = list;
 
                     // stuff
-                    foreach (var item in Enum.GetValues(control.EnumSource))
+                    foreach (var item in list)
                     {
-                        if ((int)item == control.SelectedEnumValue)
+                        if (item.Value == control.SelectedEnumValue)
                         {
                             control.SelectedValue = item;
                         }
@@ -69,8 +69,9 @@ namespace EventIAConstructor.Controls
 
         protected override void OnSelectionChanged(SelectionChangedEventArgs e)
         {
-            SelectedEnumValue = (int)(SelectedValue ?? 0);
-            SetValue(SelectedEnumValueProperty, (int)(SelectedValue ?? 0));
+            var item = SelectedValue as EnumComboBoxItem;
+            SelectedEnumValue = item?.Value ?? 0;
+            SetValue(SelectedEnumValueProperty, item?.Value ?? 0);
             base.OnSelectionChanged(e);
         }
 
@@ -78,6 +79,18 @@ namespace EventIAConstructor.Controls
         {
             get { return (Type)GetValue(EnumSourceProperty); }
             set { SetValue(EnumSourceProperty, value); }
+        }
+    }
+
+    public class EnumComboBoxItem
+    {
+        public int Value { get; private set; }
+        public string Name { get; private set; }
+
+        public EnumComboBoxItem(int value, string name)
+        {
+            Value = value;
+            Name = name;
         }
     }
 }

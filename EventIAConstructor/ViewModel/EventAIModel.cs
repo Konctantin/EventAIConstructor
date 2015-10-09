@@ -1,9 +1,9 @@
-﻿
-namespace EventIAConstructor.ViewModel
+﻿namespace EventIAConstructor.ViewModel
 {
     public class EventAIModel : BaseViewModel
     {
-        int id, creatureId, phase, chance, flag;
+        private int id, creatureId, phase, chance, flag;
+
         public EventAIModel(int id, int crid, int phase, int chance, int ef)
         {
             Id = id;

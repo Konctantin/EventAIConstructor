@@ -56,7 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controls\ComboBoxFlags.cs" />
-    <Compile Include="Controls\EnumComboBox.cs" />
+    <Compile Include="Controls\EnumCombobox.cs" />
     <Compile Include="Controls\FlagsPresenter.xaml.cs">
       <DependentUpon>FlagsPresenter.xaml</DependentUpon>
     </Compile>
@@ -66,10 +66,7 @@
     <Compile Include="Controls\CatalogWindow.xaml.cs">
       <DependentUpon>CatalogWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Converters\ConditionIntConverter.cs" />
     <Compile Include="Converters\EnumToIntConverter.cs" />
-    <Compile Include="Converters\IntToEnumConveter.cs" />
-    <Compile Include="Converters\IntToTargetConverter.cs" />
     <Compile Include="Dialogs\CreatureDialog.xaml.cs">
       <DependentUpon>CreatureDialog.xaml</DependentUpon>
     </Compile>
@@ -116,10 +113,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Converters\Converters.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Dialogs\CreatureDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -137,10 +130,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dialogs\SpellDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EventAIMetadata\EnumValues.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

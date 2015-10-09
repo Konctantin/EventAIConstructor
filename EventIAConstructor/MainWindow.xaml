@@ -3,18 +3,17 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:metadata="clr-namespace:EventIAConstructor.EventAIMetadata"
     xmlns:vm="clr-namespace:EventIAConstructor.ViewModel"
-    xmlns:Controls="clr-namespace:EventIAConstructor.Controls"
+    xmlns:controls="clr-namespace:EventIAConstructor.Controls"
     x:Class="EventIAConstructor.MainWindow"
     Title="MainWindow"
     Height="532"
-    Width="1326.045"
-    >
+    Width="1326.045">
 
     <Grid  DataContext="{Binding Source={x:Static vm:EventAIDataBase.EventAIList}}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="23"/>
-            <RowDefinition Height="434*"/>
-            <RowDefinition Height="23"/>
+            <RowDefinition Height="23" />
+            <RowDefinition Height="434*" />
+            <RowDefinition Height="23" />
         </Grid.RowDefinitions>
 
         <Menu>
@@ -32,42 +31,42 @@
             <TabItem Header="EventList">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="79*"/>
-                        <RowDefinition Height="346*"/>
+                        <RowDefinition Height="79*" />
+                        <RowDefinition Height="346*" />
                     </Grid.RowDefinitions>
 
-                    <Controls:ComboBoxFlags x:Name="cbFlags" Margin="408,0,188,46" />
+                    <controls:ComboBoxFlags x:Name="cbFlags" Margin="408,0,188,46" />
 
                     <ListView IsSynchronizedWithCurrentItem="True" Grid.Row="1" ItemsSource="{Binding}">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Id"         DisplayMemberBinding="{Binding Id}" />
-                                <GridViewColumn Header="Entry"      DisplayMemberBinding="{Binding CreatureId}"/>
+                                <GridViewColumn Header="Entry"      DisplayMemberBinding="{Binding CreatureId}" />
 
-                                <GridViewColumn Header="Phase"      DisplayMemberBinding="{Binding PhaseMask}" Width="50"/>
-                                <GridViewColumn Header="Chance"     DisplayMemberBinding="{Binding Chance}" Width="50"/>
-                                <GridViewColumn Header="Flag"       DisplayMemberBinding="{Binding EventFlags}" Width="50"/>
+                                <GridViewColumn Header="Phase"      DisplayMemberBinding="{Binding PhaseMask}" Width="50" />
+                                <GridViewColumn Header="Chance"     DisplayMemberBinding="{Binding Chance}" Width="50" />
+                                <GridViewColumn Header="Flag"       DisplayMemberBinding="{Binding EventFlags}" Width="50" />
 
-                                <GridViewColumn Header="EventType"  DisplayMemberBinding="{Binding Event.Type}"/>
-                                <GridViewColumn Header="EventPara1" DisplayMemberBinding="{Binding Event.Param1}"/>
-                                <GridViewColumn Header="EventPara2" DisplayMemberBinding="{Binding Event.Param2}"/>
-                                <GridViewColumn Header="EventPara3" DisplayMemberBinding="{Binding Event.Param3}"/>
-                                <GridViewColumn Header="EventPara4" DisplayMemberBinding="{Binding Event.Param4}"/>
+                                <GridViewColumn Header="EventType"  DisplayMemberBinding="{Binding Event.Type}" />
+                                <GridViewColumn Header="EventPara1" DisplayMemberBinding="{Binding Event.Param1}" />
+                                <GridViewColumn Header="EventPara2" DisplayMemberBinding="{Binding Event.Param2}" />
+                                <GridViewColumn Header="EventPara3" DisplayMemberBinding="{Binding Event.Param3}" />
+                                <GridViewColumn Header="EventPara4" DisplayMemberBinding="{Binding Event.Param4}" />
 
-                                <GridViewColumn Header="ActionType1" DisplayMemberBinding="{Binding Action1.Type}"/>
-                                <GridViewColumn Header="ActionParam 1 1" DisplayMemberBinding="{Binding Action1.Param1}"/>
-                                <GridViewColumn Header="ActionParam 1 2" DisplayMemberBinding="{Binding Action1.Param2}"/>
-                                <GridViewColumn Header="ActionParam 1 3" DisplayMemberBinding="{Binding Action1.Param3}"/>
+                                <GridViewColumn Header="ActionType1" DisplayMemberBinding="{Binding Action1.Type}" />
+                                <GridViewColumn Header="ActionParam 1 1" DisplayMemberBinding="{Binding Action1.Param1}" />
+                                <GridViewColumn Header="ActionParam 1 2" DisplayMemberBinding="{Binding Action1.Param2}" />
+                                <GridViewColumn Header="ActionParam 1 3" DisplayMemberBinding="{Binding Action1.Param3}" />
 
-                                <GridViewColumn Header="ActionType2" DisplayMemberBinding="{Binding Action2.Type}"/>
-                                <GridViewColumn Header="ActionParam 2 1" DisplayMemberBinding="{Binding Action2.Param1}"/>
-                                <GridViewColumn Header="ActionParam 2 2" DisplayMemberBinding="{Binding Action2.Param2}"/>
-                                <GridViewColumn Header="ActionParam 2 3" DisplayMemberBinding="{Binding Action2.Param3}"/>
+                                <GridViewColumn Header="ActionType2" DisplayMemberBinding="{Binding Action2.Type}" />
+                                <GridViewColumn Header="ActionParam 2 1" DisplayMemberBinding="{Binding Action2.Param1}" />
+                                <GridViewColumn Header="ActionParam 2 2" DisplayMemberBinding="{Binding Action2.Param2}" />
+                                <GridViewColumn Header="ActionParam 2 3" DisplayMemberBinding="{Binding Action2.Param3}" />
 
-                                <GridViewColumn Header="ActionType3" DisplayMemberBinding="{Binding ActionType3}"/>
-                                <GridViewColumn Header="ActionParam 3 1" DisplayMemberBinding="{Binding Action3.Param1}"/>
-                                <GridViewColumn Header="ActionParam 3 2" DisplayMemberBinding="{Binding Action3.Param2}"/>
-                                <GridViewColumn Header="ActionParam 3 3" DisplayMemberBinding="{Binding Action3.Param3}"/>
+                                <GridViewColumn Header="ActionType3" DisplayMemberBinding="{Binding ActionType3}" />
+                                <GridViewColumn Header="ActionParam 3 1" DisplayMemberBinding="{Binding Action3.Param1}" />
+                                <GridViewColumn Header="ActionParam 3 2" DisplayMemberBinding="{Binding Action3.Param2}" />
+                                <GridViewColumn Header="ActionParam 3 3" DisplayMemberBinding="{Binding Action3.Param3}" />
                             </GridView>
                         </ListView.View>
                     </ListView>
@@ -76,15 +75,15 @@
             <TabItem Header="Constructor">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="255*"/>
-                        <ColumnDefinition Width="211*"/>
-                        <ColumnDefinition Width="211*"/>
-                        <ColumnDefinition Width="211*"/>
+                        <ColumnDefinition Width="255*" />
+                        <ColumnDefinition Width="211*" />
+                        <ColumnDefinition Width="211*" />
+                        <ColumnDefinition Width="211*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="89*"/>
-                        <RowDefinition Height="222"/>
-                        <RowDefinition Height="113*"/>
+                        <RowDefinition Height="89*" />
+                        <RowDefinition Height="222" />
+                        <RowDefinition Height="113*" />
                     </Grid.RowDefinitions>
 
                     <!--Event Type-->
@@ -96,8 +95,8 @@
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Width="30" Text="{Binding Converter={StaticResource EnumToInt}}"/>
-                                            <TextBlock Text="{Binding}"/>
+                                            <TextBlock Width="30" Text="{Binding Converter={StaticResource EnumToInt}}" />
+                                            <TextBlock Text="{Binding}" />
                                         </StackPanel>
                                     </DataTemplate>
                                 </ComboBox.ItemTemplate>
@@ -115,14 +114,13 @@
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Width="30" Text="{Binding Converter={StaticResource EnumToInt}}"/>
-                                            <TextBlock Text="{Binding}"/>
+                                            <TextBlock Width="30" Text="{Binding Converter={StaticResource EnumToInt}}" />
+                                            <TextBlock Text="{Binding}" />
                                         </StackPanel>
                                     </DataTemplate>
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
-
-                            <ContentPresenter Content="{Binding Action1.Self}" ContentTemplateSelector="{StaticResource ActionDataTemplateSelector}"/>
+                            <ContentPresenter Content="{Binding Action1.Self}" ContentTemplateSelector="{StaticResource ActionDataTemplateSelector}" />
                         </StackPanel>
                     </GroupBox>
 
@@ -134,14 +132,14 @@
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Width="30" Text="{Binding Converter={StaticResource EnumToInt}}"/>
-                                            <TextBlock Text="{Binding}"/>
+                                            <TextBlock Width="30" Text="{Binding Converter={StaticResource EnumToInt}}" />
+                                            <TextBlock Text="{Binding}" />
                                         </StackPanel>
                                     </DataTemplate>
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
 
-                            <ContentPresenter Content="{Binding Action2.Self}" ContentTemplateSelector="{StaticResource ActionDataTemplateSelector}"/>
+                            <ContentPresenter Content="{Binding Action2.Self}" ContentTemplateSelector="{StaticResource ActionDataTemplateSelector}" />
                         </StackPanel>
                     </GroupBox>
 
@@ -153,8 +151,8 @@
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Width="30" Text="{Binding Converter={StaticResource EnumToInt}}"/>
-                                            <TextBlock Text="{Binding}"/>
+                                            <TextBlock Width="30" Text="{Binding Converter={StaticResource EnumToInt}}" />
+                                            <TextBlock Text="{Binding}" />
                                         </StackPanel>
                                     </DataTemplate>
                                 </ComboBox.ItemTemplate>
@@ -164,15 +162,13 @@
                         </StackPanel>
                     </GroupBox>
 
-                    <GridSplitter Grid.Row="2" Grid.ColumnSpan="4" Height="5" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                    <GridSplitter Grid.Row="2" Grid.ColumnSpan="4" Height="5" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" HorizontalAlignment="Stretch" />
                     <TextBox Grid.ColumnSpan="4" Grid.Row="2" Margin="0,5,0,0"
 						ScrollViewer.VerticalScrollBarVisibility="Visible"
 						ScrollViewer.HorizontalScrollBarVisibility="Visible" />
-
                 </Grid>
             </TabItem>
             <TabItem Header="Log">
-
             </TabItem>
         </TabControl>
 

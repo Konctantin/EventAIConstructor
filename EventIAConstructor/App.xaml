@@ -17,15 +17,26 @@
 
                 <ResourceDictionary>
 
-                    <CollectionViewSource x:Key="EventList" Source="{Binding Source={x:Static vm:EventAIDataBase.EventAIList}}" />
+                    <!--EventType-->
+                    <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type sys:Enum}" x:Key="EventValues">
+                        <ObjectDataProvider.MethodParameters>
+                            <x:Type TypeName="metadata:EventType" />
+                        </ObjectDataProvider.MethodParameters>
+                    </ObjectDataProvider>
 
-                    <converter:IntToEnumConveter x:Key="IntToEnumConverter" />
+                    <!--ActionType-->
+                    <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type sys:Enum}" x:Key="ActionValues">
+                        <ObjectDataProvider.MethodParameters>
+                            <x:Type TypeName="metadata:ActionType" />
+                        </ObjectDataProvider.MethodParameters>
+                    </ObjectDataProvider>
+
+                    <CollectionViewSource x:Key="EventList" Source="{Binding Source={x:Static vm:EventAIDataBase.EventAIList}}" />
                     <converter:EnumToIntConverter x:Key="EnumToInt" />
 
                     <vm:ActionDataTemplateSelector    x:Key="ActionDataTemplateSelector" />
                     <!--<vm:ConditionDataTemplateSelector x:Key="ConditionDataTemplateSelector" />-->
                     <vm:EventDataTemplateSelector     x:Key="EventDataTemplateSelector" />
-
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

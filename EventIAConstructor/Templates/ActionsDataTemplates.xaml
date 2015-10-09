@@ -6,453 +6,443 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <ResourceDictionary.MergedDictionaries>
+    <DataTemplate x:Key="ActionType.NONE">
+        <TextBlock Text="No params!" HorizontalAlignment="Center" Foreground="#FFFF0000" />
+    </DataTemplate>
 
-        <ResourceDictionary Source="../EventAIMetadata/EnumValues.xaml" />
-        <ResourceDictionary Source="../Controls/ComboBoxFlags.xaml" />
-        <ResourceDictionary Source="../Converters/Converters.xaml" />
-
-        <ResourceDictionary>
-
-            <DataTemplate x:Key="ActionType.NONE">
-                <TextBlock Text="No params!" HorizontalAlignment="Center" Foreground="#FFFF0000"/>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.TEXT">
-                <StackPanel>
-                    <TextBlock Width="50" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto">
+    <DataTemplate x:Key="ActionType.TEXT">
+        <StackPanel>
+            <TextBlock Width="50" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto">
                         Hello
-                    </TextBlock>
-                    <Separator />
-                    <TextBlock Text="TextId 1"/>
-                    <TextBox   Text="{Binding Param1}"/>
-
-                    <TextBlock Text="TextId 2"/>
-                    <TextBox   Text="{Binding Param2}"/>
-
-                    <TextBlock Text="TextId 3"/>
-                    <TextBox   Text="{Binding Param3}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.SET_FACTION">
-                <StackPanel>
-                    <TextBlock Text="FactionId"/>
-                    <TextBox   Text="{Binding Param1}"/>
-
-                    <TextBlock Text="Flags"/>
-                    <controls:ComboBoxFlags  FlagsSource="{x:Type metadata:TemporaryFaction}" SelectedFlag="{Binding Param2}" />
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.MORPH_TO_ENTRY_OR_MODEL">
-                <StackPanel>
-                    <TextBlock Text="CreatureEntry"/>
-                    <TextBox   Text="{Binding Param1}"/>
-
-                    <TextBlock Text="ModelId"/>
-                    <TextBox   Text="{Binding Param2}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.SOUND">
-                <StackPanel>
-                    <TextBlock Text="SoundId"/>
-                    <TextBox   Text="{Binding Param1}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.EMOTE">
-                <StackPanel>
-                    <TextBlock Text="EmoteId"/>
-                    <TextBox   Text="{Binding Param1}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.RANDOM_SOUND">
-                <StackPanel>
-                    <TextBlock Text="SoundId 1"/>
-                    <TextBox   Text="{Binding Param1}"/>
-
-                    <TextBlock Text="SoundId 2"/>
-                    <TextBox   Text="{Binding Param2}"/>
-
-                    <TextBlock Text="SoundId 3"/>
-                    <TextBox   Text="{Binding Param3}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.RANDOM_EMOTE">
-                <StackPanel>
-                    <TextBlock Text="EmoteId 1"/>
-                    <TextBox   Text="{Binding Param1}"/>
-
-                    <TextBlock Text="EmoteId 2"/>
-                    <TextBox   Text="{Binding Param2}"/>
-
-                    <TextBlock Text="EmoteId 3"/>
-                    <TextBox   Text="{Binding Param3}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.CAST">
-                <StackPanel>
-                    <TextBlock Text="Spell Id"/>
-                    <controls:TextBoxButton Text="{Binding Param1}" DialogType="{x:Type dialogs:SpellDialog}" />
-
-                    <TextBlock Text="Target"/>
-                    <ComboBox ItemsSource="{Binding Source={StaticResource TargetTypeValues}}" SelectedValue="{Binding Param2, Converter={StaticResource IntToTarget}}" />
-
-                    <TextBlock Text="CastFlags"/>
-                    <controls:ComboBoxFlags FlagsSource="{x:Type metadata:CastFlags}" SelectedFlag="{Binding Param3}" />
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.SUMMON_DURATION">
-                <StackPanel>
-                    <TextBlock Text="CreatureID Id"/>
-                    <controls:TextBoxButton Text="{Binding Param1}" DialogType="{x:Type dialogs:CreatureDialog}" />
-
-                    <TextBlock Text="Target"/>
-                    <ComboBox ItemsSource="{Binding Source={StaticResource TargetTypeValues}}" SelectedValue="{Binding Param2, Converter={StaticResource IntToTarget}}" />
-
-                    <TextBlock Text="Duration"/>
-                    <TextBox   Text="{Binding Param3}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.THREAT_SINGLE_PCT">
-                <StackPanel>
-                    <TextBlock Text="Threat (%)"/>
-                    <TextBox   Text="{Binding Param1}"/>
-
-                    <TextBlock Text="Target"/>
-                    <ComboBox ItemsSource="{Binding Source={StaticResource TargetTypeValues}}" SelectedValue="{Binding Param2, Converter={StaticResource IntToTarget}}" />
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.THREAT_ALL_PCT">
-                <StackPanel>
-                    <TextBlock Text="Threat (%)"/>
-                    <TextBox   Text="{Binding Param1}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.QUEST_EVENT">
-                <StackPanel>
-                    <TextBlock Text="QuestID"/>
-                    <controls:TextBoxButton Text="{Binding Param1}" DialogType="{x:Type dialogs:QuestDialog}" />
-
-                    <TextBlock Text="Target"/>
-                    <ComboBox ItemsSource="{Binding Source={StaticResource TargetTypeValues}}" SelectedValue="{Binding Param2, Converter={StaticResource IntToTarget}}" />
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.QUEST_CASTCREATUREGO">
-                <StackPanel>
-                    <TextBlock Text="CreatureID"/>
-                    <controls:TextBoxButton Text="{Binding Param1}" DialogType="{x:Type dialogs:CreatureDialog}"/>
-
-                    <TextBlock Text="SpellId"/>
-                    <controls:TextBoxButton Text="{Binding Param2}" DialogType="{x:Type dialogs:SpellDialog}" />
-
-                    <TextBlock Text="Target"/>
-                    <ComboBox ItemsSource="{Binding Source={StaticResource TargetTypeValues}}" SelectedValue="{Binding Param3, Converter={StaticResource IntToTarget}}" />
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.SET_UNIT_FIELD">
-                <StackPanel>
-                    <TextBlock Text="Field_Number"/>
-                    <TextBox   Text="{Binding Param1}"/>
-
-                    <TextBlock Text="Value"/>
-                    <TextBox   Text="{Binding Param2}"/>
-
-                    <TextBlock Text="Target"/>
-                    <ComboBox ItemsSource="{Binding Source={StaticResource TargetTypeValues}}" SelectedValue="{Binding Param3, Converter={StaticResource IntToTarget}}" />
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.SET_UNIT_FLAG">
-                <StackPanel>
-                    <TextBlock Text="Flags"/>
-                    <TextBox   Text="{Binding Param1}"/>
-
-                    <TextBlock Text="Target"/>
-                    <ComboBox ItemsSource="{Binding Source={StaticResource TargetTypeValues}}" SelectedValue="{Binding Param2, Converter={StaticResource IntToTarget}}" />
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.REMOVE_UNIT_FLAG">
-                <StackPanel>
-                    <TextBlock Text="Flags"/>
-                    <TextBox   Text="{Binding Param1}"/>
-
-                    <TextBlock Text="Target"/>
-                    <ComboBox ItemsSource="{Binding Source={StaticResource TargetTypeValues}}" SelectedValue="{Binding Param2, Converter={StaticResource IntToTarget}}" />
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.AUTO_ATTACK">
-                <StackPanel>
-                    <TextBlock Text="AllowAutoAttack"/>
-                    <TextBox   Text="{Binding Param1}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.COMBAT_MOVEMENT">
-                <StackPanel>
-                    <TextBlock Text="AllowCombatMovement"/>
-                    <TextBox   Text="{Binding Param1}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.SET_PHASE">
-                <StackPanel>
-                    <TextBlock Text="Phase"/>
-                    <TextBox   Text="{Binding Param1}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.INC_PHASE">
-                <StackPanel>
-                    <TextBlock Text="Value"/>
-                    <TextBox   Text="{Binding Param1}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.EVADE">
-                <TextBlock Text="No params!" HorizontalAlignment="Center" Foreground="#FFFF0000"/>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.FLEE_FOR_ASSIST">
-                <TextBlock Text="No params!" HorizontalAlignment="Center" Foreground="#FFFF0000"/>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.QUEST_EVENT_ALL">
-                <StackPanel>
-                    <TextBlock Text="QuestId"/>
-                    <controls:TextBoxButton Text="{Binding Param1}" DialogType="{x:Type dialogs:QuestDialog}" />
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.CASTCREATUREGO_ALL">
-                <StackPanel>
-                    <TextBlock Text="QuestId"/>
-                    <controls:TextBoxButton Text="{Binding Param1}" DialogType="{x:Type dialogs:QuestDialog}" />
-
-                    <TextBlock Text="SpellId"/>
-                    <controls:TextBoxButton Text="{Binding Param2}" DialogType="{x:Type dialogs:SpellDialog}" />
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.REMOVEAURASFROMSPELL">
-                <StackPanel>
-                    <TextBlock Text="Target"/>
-                    <ComboBox ItemsSource="{Binding Source={StaticResource TargetTypeValues}}" SelectedValue="{Binding Param1, Converter={StaticResource IntToTarget}}"/>
-
-                    <TextBlock Text="Spellid"/>
-                    <controls:TextBoxButton Text="{Binding Param2}" DialogType="{x:Type dialogs:SpellDialog}" />
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.RANGED_MOVEMENT">
-                <StackPanel>
-                    <TextBlock Text="Distance"/>
-                    <TextBox   Text="{Binding Param1}"/>
-
-                    <TextBlock Text="Angle"/>
-                    <TextBox   Text="{Binding Param2}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.RANDOM_PHASE">
-                <StackPanel>
-                    <TextBlock Text="PhaseId 1"/>
-                    <TextBox   Text="{Binding Param1}"/>
-
-                    <TextBlock Text="PhaseId 2"/>
-                    <TextBox   Text="{Binding Param2}"/>
-
-                    <TextBlock Text="PhaseId 3"/>
-                    <TextBox   Text="{Binding Param3}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.RANDOM_PHASE_RANGE">
-                <StackPanel>
-                    <TextBlock Text="PhaseMin"/>
-                    <TextBox   Text="{Binding Param1}"/>
-
-                    <TextBlock Text="PhaseMax"/>
-                    <TextBox   Text="{Binding Param2}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.SUMMON">
-                <StackPanel>
-                    <TextBlock Text="CreatureID"/>
-                    <TextBox   Text="{Binding Param1}"/>
-
-                    <TextBlock Text="Target"/>
-                    <ComboBox ItemsSource="{Binding Source={StaticResource TargetTypeValues}}" SelectedValue="{Binding Param2, Converter={StaticResource IntToTarget}}"/>
-
-                    <TextBlock Text="SummonID"/>
-                    <TextBox   Text="{Binding Param3}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.KILLED_MONSTER">
-                <StackPanel>
-                    <TextBlock Text="CreatureID"/>
-                    <TextBox   Text="{Binding Param1}"/>
-
-                    <TextBlock Text="Target"/>
-                    <ComboBox ItemsSource="{Binding Source={StaticResource TargetTypeValues}}" SelectedValue="{Binding Param2, Converter={StaticResource IntToTarget}}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.SET_INST_DATA">
-                <StackPanel>
-                    <TextBlock Text="Field"/>
-                    <TextBox   Text="{Binding Param1}"/>
-
-                    <TextBlock Text="Data"/>
-                    <TextBox   Text="{Binding Param2}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.SET_INST_DATA64"> <!--need review-->
-                <StackPanel>
-                    <TextBlock Text="Field"/>
-                    <TextBox   Text="{Binding Param1}"/>
-
-                    <TextBlock Text="Data"/>
-                    <TextBox   Text="{Binding Param2}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.UPDATE_TEMPLATE">
-                <StackPanel>
-                    <TextBlock Text="TemplateId"/>
-                    <TextBox   Text="{Binding Param1}"/>
-
-                    <TextBlock Text="Team"/>
-                    <TextBox   Text="{Binding Param2}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.DIE">
-                <TextBlock Text="No params!" HorizontalAlignment="Center" Foreground="#FFFF0000"/>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.ZONE_COMBAT_PULSE">
-                <TextBlock Text="No params!" HorizontalAlignment="Center" Foreground="#FFFF0000"/>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.CALL_FOR_HELP">
-                <StackPanel>
-                    <TextBlock Text="Radius"/>
-                    <TextBox   Text="{Binding Param1}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.SET_SHEATH">
-                <StackPanel>
-                    <TextBlock Text="Sheath"/>
-                    <TextBox   Text="{Binding Param1}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.FORCE_DESPAWN">
-                <StackPanel>
-                    <TextBlock Text="Delay"/>
-                    <TextBox   Text="{Binding Param1}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.SET_INVINCIBILITY_HP_LEVEL">
-                <StackPanel>
-                    <TextBlock Text="HP_Level"/>
-                    <TextBox   Text="{Binding Param1}"/>
-
-                    <TextBlock Text="HP_Percent"/>
-                    <TextBox   Text="{Binding Param2}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.MOUNT_TO_ENTRY_OR_MODEL">
-                <StackPanel>
-                    <TextBlock Text="CreatureEntry"/>
-                    <TextBox   Text="{Binding Param1}"/>
-
-                    <TextBlock Text="ModelId"/>
-                    <TextBox   Text="{Binding Param2}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.CHANCED_TEXT">
-                <StackPanel>
-                    <TextBlock Text="Chance"/>
-                    <TextBox   Text="{Binding Param1}"/>
-
-                    <TextBlock Text="TextId 1"/>
-                    <TextBox   Text="{Binding Param2}"/>
-
-                    <TextBlock Text="TextId 2"/>
-                    <TextBox   Text="{Binding Param3}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.THROW_AI_EVENT">
-                <StackPanel>
-                    <TextBlock Text="EventType"/>
-                    <TextBox   Text="{Binding Param1}"/>
-
-                    <TextBlock Text="Radius"/>
-                    <TextBox   Text="{Binding Param2}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.SET_THROW_MASK">
-                <StackPanel>
-                    <TextBlock Text="EventTypeMask"/>
-                    <TextBox   Text="{Binding Param1}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.SET_STAND_STATE">
-                <StackPanel>
-                    <TextBlock Text="StandState"/>
-                    <controls:EnumComboBox EnumSource="{x:Type metadata:StandState}" SelectedEnumValue="{Binding Param1}" />
-                    <TextBox   Text="{Binding Param1}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.CHANGE_MOVEMENT">
-                <StackPanel>
-                    <TextBlock Text="Param 1"/>
-                    <TextBox   Text="{Binding Param1}"/>
-
-                    <TextBlock Text="Param 2"/>
-                    <TextBox   Text="{Binding Param2}"/>
-                </StackPanel>
-            </DataTemplate>
-
-            <DataTemplate x:Key="ActionType.NOT_IMPLEMENTED">
-                <StackPanel>
-                    <TextBlock Text="Param 1"/>
-                    <TextBox   Text="{Binding Param1}"/>
-
-                    <TextBlock Text="Param 2"/>
-                    <TextBox   Text="{Binding Param2}"/>
-
-                    <TextBlock Text="Param 3"/>
-                    <TextBox   Text="{Binding Param3}"/>
-                </StackPanel>
-            </DataTemplate>
-
-        </ResourceDictionary>
-    </ResourceDictionary.MergedDictionaries>
+            </TextBlock>
+            <Separator />
+            <TextBlock Text="TextId 1" />
+            <TextBox   Text="{Binding Param1}" />
+
+            <TextBlock Text="TextId 2" />
+            <TextBox   Text="{Binding Param2}" />
+
+            <TextBlock Text="TextId 3" />
+            <TextBox   Text="{Binding Param3}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.SET_FACTION">
+        <StackPanel>
+            <TextBlock Text="FactionId" />
+            <TextBox   Text="{Binding Param1}" />
+
+            <TextBlock Text="Flags" />
+            <controls:ComboBoxFlags  FlagsSource="{x:Type metadata:TemporaryFaction}" SelectedFlag="{Binding Param2}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.MORPH_TO_ENTRY_OR_MODEL">
+        <StackPanel>
+            <TextBlock Text="CreatureEntry" />
+            <TextBox   Text="{Binding Param1}" />
+
+            <TextBlock Text="ModelId" />
+            <TextBox   Text="{Binding Param2}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.SOUND">
+        <StackPanel>
+            <TextBlock Text="SoundId" />
+            <TextBox   Text="{Binding Param1}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.EMOTE">
+        <StackPanel>
+            <TextBlock Text="EmoteId" />
+            <TextBox   Text="{Binding Param1}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.RANDOM_SOUND">
+        <StackPanel>
+            <TextBlock Text="SoundId 1" />
+            <TextBox   Text="{Binding Param1}" />
+
+            <TextBlock Text="SoundId 2" />
+            <TextBox   Text="{Binding Param2}" />
+
+            <TextBlock Text="SoundId 3" />
+            <TextBox   Text="{Binding Param3}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.RANDOM_EMOTE">
+        <StackPanel>
+            <TextBlock Text="EmoteId 1" />
+            <TextBox   Text="{Binding Param1}" />
+
+            <TextBlock Text="EmoteId 2" />
+            <TextBox   Text="{Binding Param2}" />
+
+            <TextBlock Text="EmoteId 3" />
+            <TextBox   Text="{Binding Param3}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.CAST">
+        <StackPanel>
+            <TextBlock Text="Spell Id" />
+            <controls:TextBoxButton Value="{Binding Param1}" DialogType="{x:Type dialogs:SpellDialog}" />
+
+            <TextBlock Text="Target" />
+            <controls:EnumComboBox EnumSource="{x:Type metadata:TargetType}"  SelectedEnumValue="{Binding Param2}" />
+
+            <TextBlock Text="CastFlags" />
+            <controls:ComboBoxFlags FlagsSource="{x:Type metadata:CastFlags}" SelectedFlag="{Binding Param3}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.SUMMON_DURATION">
+        <StackPanel>
+            <TextBlock Text="CreatureID Id" />
+            <controls:TextBoxButton Value="{Binding Param1}" DialogType="{x:Type dialogs:CreatureDialog}" />
+
+            <TextBlock Text="Target" />
+            <controls:EnumComboBox EnumSource="{x:Type metadata:TargetType}"  SelectedEnumValue="{Binding Param2}" />
+
+            <TextBlock Text="Duration" />
+            <TextBox   Text="{Binding Param3}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.THREAT_SINGLE_PCT">
+        <StackPanel>
+            <TextBlock Text="Threat (%)" />
+            <TextBox   Text="{Binding Param1}" />
+
+            <TextBlock Text="Target" />
+            <controls:EnumComboBox EnumSource="{x:Type metadata:TargetType}"  SelectedEnumValue="{Binding Param2}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.THREAT_ALL_PCT">
+        <StackPanel>
+            <TextBlock Text="Threat (%)" />
+            <TextBox   Text="{Binding Param1}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.QUEST_EVENT">
+        <StackPanel>
+            <TextBlock Text="QuestID" />
+            <controls:TextBoxButton Value="{Binding Param1}" DialogType="{x:Type dialogs:QuestDialog}" />
+
+            <TextBlock Text="Target" />
+            <controls:EnumComboBox EnumSource="{x:Type metadata:TargetType}"  SelectedEnumValue="{Binding Param2}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.QUEST_CASTCREATUREGO">
+        <StackPanel>
+            <TextBlock Text="CreatureID" />
+            <controls:TextBoxButton Value="{Binding Param1}" DialogType="{x:Type dialogs:CreatureDialog}" />
+
+            <TextBlock Text="SpellId" />
+            <controls:TextBoxButton Value="{Binding Param2}" DialogType="{x:Type dialogs:SpellDialog}" />
+
+            <TextBlock Text="Target" />
+            <controls:EnumComboBox EnumSource="{x:Type metadata:TargetType}"  SelectedEnumValue="{Binding Param3}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.SET_UNIT_FIELD">
+        <StackPanel>
+            <TextBlock Text="Field_Number" />
+            <TextBox   Text="{Binding Param1}" />
+
+            <TextBlock Text="Value" />
+            <TextBox   Text="{Binding Param2}" />
+
+            <TextBlock Text="Target" />
+            <controls:EnumComboBox EnumSource="{x:Type metadata:TargetType}"  SelectedEnumValue="{Binding Param3}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.SET_UNIT_FLAG">
+        <StackPanel>
+            <TextBlock Text="Flags" />
+            <TextBox   Text="{Binding Param1}" />
+
+            <TextBlock Text="Target" />
+            <controls:EnumComboBox EnumSource="{x:Type metadata:TargetType}"  SelectedEnumValue="{Binding Param2}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.REMOVE_UNIT_FLAG">
+        <StackPanel>
+            <TextBlock Text="Flags" />
+            <TextBox   Text="{Binding Param1}" />
+
+            <TextBlock Text="Target" />
+            <controls:EnumComboBox EnumSource="{x:Type metadata:TargetType}"  SelectedEnumValue="{Binding Param2}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.AUTO_ATTACK">
+        <StackPanel>
+            <TextBlock Text="AllowAutoAttack" />
+            <TextBox   Text="{Binding Param1}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.COMBAT_MOVEMENT">
+        <StackPanel>
+            <TextBlock Text="AllowCombatMovement" />
+            <TextBox   Text="{Binding Param1}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.SET_PHASE">
+        <StackPanel>
+            <TextBlock Text="Phase" />
+            <TextBox   Text="{Binding Param1}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.INC_PHASE">
+        <StackPanel>
+            <TextBlock Text="Value" />
+            <TextBox   Text="{Binding Param1}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.EVADE">
+        <TextBlock Text="No params!" HorizontalAlignment="Center" Foreground="#FFFF0000" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.FLEE_FOR_ASSIST">
+        <TextBlock Text="No params!" HorizontalAlignment="Center" Foreground="#FFFF0000" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.QUEST_EVENT_ALL">
+        <StackPanel>
+            <TextBlock Text="QuestId" />
+            <controls:TextBoxButton Value="{Binding Param1}" DialogType="{x:Type dialogs:QuestDialog}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.CASTCREATUREGO_ALL">
+        <StackPanel>
+            <TextBlock Text="QuestId" />
+            <controls:TextBoxButton Value="{Binding Param1}" DialogType="{x:Type dialogs:QuestDialog}" />
+
+            <TextBlock Text="SpellId" />
+            <controls:TextBoxButton Value="{Binding Param2}" DialogType="{x:Type dialogs:SpellDialog}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.REMOVEAURASFROMSPELL">
+        <StackPanel>
+            <TextBlock Text="Target" />
+            <controls:EnumComboBox EnumSource="{x:Type metadata:TargetType}"  SelectedEnumValue="{Binding Param1}" />
+
+            <TextBlock Text="Spellid" />
+            <controls:TextBoxButton Value="{Binding Param2}" DialogType="{x:Type dialogs:SpellDialog}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.RANGED_MOVEMENT">
+        <StackPanel>
+            <TextBlock Text="Distance" />
+            <TextBox   Text="{Binding Param1}" />
+
+            <TextBlock Text="Angle" />
+            <TextBox   Text="{Binding Param2}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.RANDOM_PHASE">
+        <StackPanel>
+            <TextBlock Text="PhaseId 1" />
+            <TextBox   Text="{Binding Param1}" />
+
+            <TextBlock Text="PhaseId 2" />
+            <TextBox   Text="{Binding Param2}" />
+
+            <TextBlock Text="PhaseId 3" />
+            <TextBox   Text="{Binding Param3}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.RANDOM_PHASE_RANGE">
+        <StackPanel>
+            <TextBlock Text="PhaseMin" />
+            <TextBox   Text="{Binding Param1}" />
+
+            <TextBlock Text="PhaseMax" />
+            <TextBox   Text="{Binding Param2}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.SUMMON">
+        <StackPanel>
+            <TextBlock Text="CreatureID" />
+            <TextBox   Text="{Binding Param1}" />
+
+            <TextBlock Text="Target" />
+            <controls:EnumComboBox EnumSource="{x:Type metadata:TargetType}"  SelectedEnumValue="{Binding Param2}" />
+
+            <TextBlock Text="SummonID" />
+            <TextBox   Text="{Binding Param3}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.KILLED_MONSTER">
+        <StackPanel>
+            <TextBlock Text="CreatureID" />
+            <TextBox   Text="{Binding Param1}" />
+
+            <TextBlock Text="Target" />
+            <controls:EnumComboBox EnumSource="{x:Type metadata:TargetType}"  SelectedEnumValue="{Binding Param2}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.SET_INST_DATA">
+        <StackPanel>
+            <TextBlock Text="Field" />
+            <TextBox   Text="{Binding Param1}" />
+
+            <TextBlock Text="Data" />
+            <TextBox   Text="{Binding Param2}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.SET_INST_DATA64">
+        <!--need review-->
+        <StackPanel>
+            <TextBlock Text="Field" />
+            <TextBox   Text="{Binding Param1}" />
+
+            <TextBlock Text="Data" />
+            <TextBox   Text="{Binding Param2}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.UPDATE_TEMPLATE">
+        <StackPanel>
+            <TextBlock Text="TemplateId" />
+            <TextBox   Text="{Binding Param1}" />
+
+            <TextBlock Text="Team" />
+            <TextBox   Text="{Binding Param2}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.DIE">
+        <TextBlock Text="No params!" HorizontalAlignment="Center" Foreground="#FFFF0000" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.ZONE_COMBAT_PULSE">
+        <TextBlock Text="No params!" HorizontalAlignment="Center" Foreground="#FFFF0000" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.CALL_FOR_HELP">
+        <StackPanel>
+            <TextBlock Text="Radius" />
+            <TextBox   Text="{Binding Param1}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.SET_SHEATH">
+        <StackPanel>
+            <TextBlock Text="Sheath" />
+            <TextBox   Text="{Binding Param1}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.FORCE_DESPAWN">
+        <StackPanel>
+            <TextBlock Text="Delay" />
+            <TextBox   Text="{Binding Param1}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.SET_INVINCIBILITY_HP_LEVEL">
+        <StackPanel>
+            <TextBlock Text="HP_Level" />
+            <TextBox   Text="{Binding Param1}" />
+
+            <TextBlock Text="HP_Percent" />
+            <TextBox   Text="{Binding Param2}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.MOUNT_TO_ENTRY_OR_MODEL">
+        <StackPanel>
+            <TextBlock Text="CreatureEntry" />
+            <TextBox   Text="{Binding Param1}" />
+
+            <TextBlock Text="ModelId" />
+            <TextBox   Text="{Binding Param2}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.CHANCED_TEXT">
+        <StackPanel>
+            <TextBlock Text="Chance" />
+            <TextBox   Text="{Binding Param1}" />
+
+            <TextBlock Text="TextId 1" />
+            <TextBox   Text="{Binding Param2}" />
+
+            <TextBlock Text="TextId 2" />
+            <TextBox   Text="{Binding Param3}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.THROW_AI_EVENT">
+        <StackPanel>
+            <TextBlock Text="EventType" />
+            <TextBox   Text="{Binding Param1}" />
+
+            <TextBlock Text="Radius" />
+            <TextBox   Text="{Binding Param2}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.SET_THROW_MASK">
+        <StackPanel>
+            <TextBlock Text="EventTypeMask" />
+            <TextBox   Text="{Binding Param1}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.SET_STAND_STATE">
+        <StackPanel>
+            <TextBlock Text="StandState" />
+            <controls:EnumComboBox EnumSource="{x:Type metadata:StandState}" SelectedEnumValue="{Binding Param1}" />
+            <TextBox   Text="{Binding Param1}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.CHANGE_MOVEMENT">
+        <StackPanel>
+            <TextBlock Text="Param 1" />
+            <TextBox   Text="{Binding Param1}" />
+
+            <TextBlock Text="Param 2" />
+            <TextBox   Text="{Binding Param2}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ActionType.NOT_IMPLEMENTED">
+        <StackPanel>
+            <TextBlock Text="Param 1" />
+            <TextBox   Text="{Binding Param1}" />
+
+            <TextBlock Text="Param 2" />
+            <TextBox   Text="{Binding Param2}" />
+
+            <TextBlock Text="Param 3" />
+            <TextBox   Text="{Binding Param3}" />
+        </StackPanel>
+    </DataTemplate>
 </ResourceDictionary>

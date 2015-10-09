@@ -1,18 +1,8 @@
 ﻿using EventIAConstructor.Dialogs;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace EventIAConstructor.Controls
 {
@@ -21,11 +11,11 @@ namespace EventIAConstructor.Controls
     /// </summary>
     public partial class TextBoxButton : UserControl
     {
-        public static DependencyProperty TextProperty = DependencyProperty.Register("Text",
-            typeof(string),
+        public static DependencyProperty ValueProperty = DependencyProperty.Register("Value",
+            typeof(int),
             typeof(TextBoxButton),
             new FrameworkPropertyMetadata(
-                "",
+                0,
                 FrameworkPropertyMetadataOptions.BindsTwoWayByDefault | FrameworkPropertyMetadataOptions.Journal,
                 null,
                 null,
@@ -40,10 +30,10 @@ namespace EventIAConstructor.Controls
             InitializeComponent();
         }
 
-        public string Text
+        public int Value
         {
-            get { return (string)GetValue(TextProperty); }
-            set { SetValue(TextProperty, value); }
+            get { return (int)GetValue(ValueProperty); }
+            set { SetValue(ValueProperty, value); }
         }
 
         public Type DialogType
@@ -52,7 +42,7 @@ namespace EventIAConstructor.Controls
             set { SetValue(DialogTypeProperty, value); }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void CommandBinding_Play_Executed(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
         {
             if (!(DialogType.IsSubclassOf(typeof(Window))))
                 throw new Exception();
@@ -62,11 +52,14 @@ namespace EventIAConstructor.Controls
             {
                 throw new Exception();
             }
-            window.Owner = App.Current.MainWindow;
-            window.Title = textBox.Text;
-            window.ShowDialog();
 
-            Text = 5.ToString();
+            window.Owner = Application.Current.MainWindow;
+            window.Title = textBox.Text;
+            (window as IDialog).Id = Value;
+            if (window.ShowDialog() == true)
+            {
+                Value = (window as IDialog).Id;
+            }
         }
     }
 }

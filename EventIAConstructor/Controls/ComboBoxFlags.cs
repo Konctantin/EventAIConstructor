@@ -1,22 +1,18 @@
-﻿using System;
+﻿using EventIAConstructor.ViewModel;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using EventIAConstructor.ViewModel;
 
 namespace EventIAConstructor.Controls
 {
     public class ComboBoxFlags : ComboBox
     {
-        public static DependencyProperty SelectedFlagProperty = DependencyProperty.Register("SelectedFlag", typeof(int),  typeof(ComboBoxFlags),
+        public static DependencyProperty SelectedFlagProperty = DependencyProperty.Register("SelectedFlag", typeof(int), typeof(ComboBoxFlags),
             new FrameworkPropertyMetadata(0, FrameworkPropertyMetadataOptions.Journal | FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
                 OnSelectedFlagPropertyPropertyChanged, null, true, System.Windows.Data.UpdateSourceTrigger.PropertyChanged));
 
-        public static DependencyProperty FlagsSourceProperty  = DependencyProperty.Register("FlagsSource",  typeof(Type), typeof(ComboBoxFlags),
+        public static DependencyProperty FlagsSourceProperty = DependencyProperty.Register("FlagsSource", typeof(Type), typeof(ComboBoxFlags),
             new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.Journal | FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
                 OnFlagsSourcePropertyChanged, null, true, System.Windows.Data.UpdateSourceTrigger.PropertyChanged));
 
@@ -38,7 +34,6 @@ namespace EventIAConstructor.Controls
 
         private static void OnFlagsSourcePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-
             if (e.NewValue != e.OldValue)
             {
                 var control = d as ComboBoxFlags;
@@ -74,7 +69,7 @@ namespace EventIAConstructor.Controls
     {
         public ComboBoxFlagsItem(ComboBoxFlags control, object value, bool isChecked)
         {
-            this.control   = control;
+            this.control = control;
             this.isChecked = isChecked;
             RawValue = (int)value;
             Value = value;
@@ -87,7 +82,8 @@ namespace EventIAConstructor.Controls
         public bool IsChecked
         {
             get { return isChecked; }
-            set {
+            set
+            {
                 if (isChecked != value)
                 {
                     isChecked = value;

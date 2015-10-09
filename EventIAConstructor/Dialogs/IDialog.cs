@@ -1,8 +1,7 @@
-﻿
-namespace EventIAConstructor.Dialogs
+﻿namespace EventIAConstructor.Dialogs
 {
-    interface IDialog
+    internal interface IDialog
     {
-        int Id { get; }
+        int Id { get; set; }
     }
 }
