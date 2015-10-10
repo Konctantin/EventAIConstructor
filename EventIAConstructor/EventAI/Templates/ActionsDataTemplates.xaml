@@ -12,7 +12,7 @@
 
     <DataTemplate x:Key="ActionType.TEXT">
         <StackPanel>
-            <TextBlock Width="50" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <TextBlock Height="50" TextWrapping="Wrap">
                         Hello
             </TextBlock>
             <Separator />

@@ -3,7 +3,7 @@
 namespace EventIAConstructor.EventAI.Metadata
 {
     [Flags]
-    public enum CastFlags : int
+    public enum CastFlags
     {
         INTURRUPT_PREVIOUS  = 1,
         TRIGGERED           = 2,

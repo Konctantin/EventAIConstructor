@@ -6,7 +6,7 @@ namespace EventIAConstructor.EventAI.Metadata
     /// Below is the list of current Event Flags that EventAI can handle.
     /// </summary>
     [Flags]
-    public enum EventFlags : int
+    public enum EventFlags
     {
         /// <summary>
         /// Event repeats (Does not repeat if this flag is not set)

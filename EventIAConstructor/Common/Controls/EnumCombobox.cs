@@ -16,7 +16,7 @@ namespace EventIAConstructor.Common.Controls
             new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.Journal | FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
                 OnEnumSourcePropertyChanged, null, true, UpdateSourceTrigger.PropertyChanged));
 
-        private static void OnSelectedEnumValuePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        static void OnSelectedEnumValuePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (e.NewValue != e.OldValue)
             {
@@ -34,7 +34,7 @@ namespace EventIAConstructor.Common.Controls
             }
         }
 
-        private static void OnEnumSourcePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        static void OnEnumSourcePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (e.NewValue != e.OldValue)
             {

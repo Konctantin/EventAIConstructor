@@ -42,7 +42,7 @@ namespace EventIAConstructor.Common.Controls
             set { SetValue(DialogTypeProperty, value); }
         }
 
-        private void CommandBinding_Play_Executed(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
+        void CommandBinding_Play_Executed(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
         {
             if (!(DialogType.IsSubclassOf(typeof(Window))))
                 throw new Exception();

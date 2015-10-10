@@ -1,7 +1,7 @@
 ﻿
 namespace EventIAConstructor.EventAI.Metadata
 {
-    public enum ActionType : int
+    public enum ActionType
     {
         NONE                        = 0,
         TEXT                        = 1,

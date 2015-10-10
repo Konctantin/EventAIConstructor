@@ -4,7 +4,7 @@ namespace EventIAConstructor.EventAI.Metadata
     /// <summary>
     /// Events that do not have lables on them are events that are directly involved with the in and out of combat state.
     /// </summary>
-    public enum EventType : int
+    public enum EventType
     {
         TIMER_IN_COMBAT         = 0,
         TIMER_OOC               = 1,

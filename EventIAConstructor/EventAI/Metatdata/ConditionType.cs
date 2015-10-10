@@ -1,7 +1,7 @@
 ﻿
 namespace EventIAConstructor.EventAI.Metadata
 {
-    public enum ConditionType : int
+    public enum ConditionType
     {
         NONE            = 0,    // 0            0
         AURA            = 1,    // spell_id     effindex

@@ -1,7 +1,7 @@
 ﻿
 namespace EventIAConstructor.EventAI.Metadata
 {
-    public enum StandState : int
+    public enum StandState
     {
         STAND            = 0,
         SIT              = 1,

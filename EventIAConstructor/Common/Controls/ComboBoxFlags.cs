@@ -15,7 +15,7 @@ namespace EventIAConstructor.Common.Controls
             new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.Journal | FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
                 OnFlagsSourcePropertyChanged, null, true, System.Windows.Data.UpdateSourceTrigger.PropertyChanged));
 
-        private static void OnSelectedFlagPropertyPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        static void OnSelectedFlagPropertyPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (e.NewValue != e.OldValue)
             {
@@ -31,7 +31,7 @@ namespace EventIAConstructor.Common.Controls
             }
         }
 
-        private static void OnFlagsSourcePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        static void OnFlagsSourcePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (e.NewValue != e.OldValue)
             {
@@ -74,9 +74,9 @@ namespace EventIAConstructor.Common.Controls
             Value = value;
         }
 
-        private ComboBoxFlags control;
+        ComboBoxFlags control;
 
-        private bool isChecked;
+        bool isChecked;
 
         public bool IsChecked
         {

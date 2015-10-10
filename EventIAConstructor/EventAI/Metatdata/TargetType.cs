@@ -1,7 +1,7 @@
 ﻿
 namespace EventIAConstructor.EventAI.Metadata
 {
-    public enum TargetType : int
+    public enum TargetType
     {
         /// <summary>
         /// Self Cast

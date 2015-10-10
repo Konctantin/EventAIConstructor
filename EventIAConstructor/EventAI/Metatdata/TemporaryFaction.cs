@@ -3,7 +3,7 @@
 namespace EventIAConstructor.EventAI.Metadata
 {
     [Flags]
-    public enum TemporaryFaction : int
+    public enum TemporaryFaction
     {
         NONE                = 0x00,
         RESTORE_RESPAWN     = 0x01,
