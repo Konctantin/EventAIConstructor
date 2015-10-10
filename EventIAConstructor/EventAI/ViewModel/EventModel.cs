@@ -6,14 +6,13 @@ namespace EventIAConstructor.EventAI.ViewModel
 {
     public class EventModel : BaseViewModel
     {
-        int param1, param2, param3, param4;
-        EventType type;
+        int type, param1, param2, param3, param4;
 
         public EventModel Self { get; private set; }
 
         public EventAIModel Parent { get; private set; }
 
-        public EventModel(EventAIModel parent, EventType type, params int[] values)
+        public EventModel(EventAIModel parent, int type, params int[] values)
         {
             Parent = parent;
 
@@ -28,7 +27,7 @@ namespace EventIAConstructor.EventAI.ViewModel
             Self = this;
         }
 
-        public EventType Type
+        public int Type
         {
             get { return type; }
             set

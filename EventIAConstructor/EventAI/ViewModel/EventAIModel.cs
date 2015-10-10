@@ -4,7 +4,7 @@ namespace EventIAConstructor.EventAI.ViewModel
 {
     public class EventAIModel : BaseViewModel
     {
-        private int id, creatureId, phase, chance, flag;
+        int id, creatureId, phase, chance, flag;
 
         public EventAIModel(int id, int crid, int phase, int chance, int ef)
         {

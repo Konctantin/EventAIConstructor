@@ -6,13 +6,14 @@
     xmlns:controls="clr-namespace:EventIAConstructor.Common.Controls"
     x:Class="EventIAConstructor.MainWindow"
     Title="MainWindow"
-    Height="532"
+    Height="839.05"
     Width="1326.045">
 
-    <Grid  DataContext="{Binding Source={x:Static vm:EventAIDataBase.EventAIList}}">
+    <Grid DataContext="{Binding Source={x:Static vm:EventAIDataBase.EventAIList}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="23" />
-            <RowDefinition Height="434*" />
+            <RowDefinition Height="145*" />
+            <RowDefinition Height="236*"/>
             <RowDefinition Height="23" />
         </Grid.RowDefinitions>
 
@@ -27,17 +28,23 @@
             </MenuItem>
         </Menu>
 
-        <TabControl Grid.Row="1">
-            <TabItem Header="EventList">
+        <TabControl Grid.Row="1" Grid.RowSpan="2">
+            <TabItem Header="Constructor">
                 <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="255*" />
+                        <ColumnDefinition Width="211*" />
+                        <ColumnDefinition Width="211*" />
+                        <ColumnDefinition Width="211*" />
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="79*" />
-                        <RowDefinition Height="346*" />
+                        <RowDefinition Height="35*" />
+                        <RowDefinition Height="22*"/>
+                        <RowDefinition Height="222" />
+                        <RowDefinition Height="113" />
                     </Grid.RowDefinitions>
 
-                    <controls:ComboBoxFlags x:Name="cbFlags" Margin="408,0,188,46" />
-
-                    <ListView IsSynchronizedWithCurrentItem="True" Grid.Row="1" ItemsSource="{Binding}">
+                    <ListView IsSynchronizedWithCurrentItem="True" Grid.Row="0" Grid.ColumnSpan="4" ItemsSource="{Binding}">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Id"         DisplayMemberBinding="{Binding Id}" />
@@ -70,100 +77,41 @@
                             </GridView>
                         </ListView.View>
                     </ListView>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Constructor">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="255*" />
-                        <ColumnDefinition Width="211*" />
-                        <ColumnDefinition Width="211*" />
-                        <ColumnDefinition Width="211*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="89*" />
-                        <RowDefinition Height="222" />
-                        <RowDefinition Height="113*" />
-                    </Grid.RowDefinitions>
 
                     <!--Event Type-->
-                    <GroupBox Header="Event type" Grid.Row="1">
+                    <GroupBox Header="Event type" Grid.Row="2">
                         <StackPanel>
-                            <ComboBox ItemsSource="{Binding Source={StaticResource EventValues}}"
-                                      IsSynchronizedWithCurrentItem="True"
-								      SelectedValue="{Binding Event.Type}">
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Width="30" Text="{Binding Converter={StaticResource EnumToInt}}" />
-                                            <TextBlock Text="{Binding}" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
-                            </ComboBox>
-
+                            <controls:EnumComboBox SelectedEnumValue="{Binding Event.Type}" EnumSource="{x:Type metadata:EventType}"/>
                             <ContentPresenter Content="{Binding Event.Self}"  ContentTemplateSelector="{StaticResource EventDataTemplateSelector}" />
                         </StackPanel>
                     </GroupBox>
 
                     <!--Action Type 1-->
-                    <GroupBox Grid.Column="1" Header="Action type 1" Grid.Row="1">
+                    <GroupBox Grid.Column="1" Header="Action type 1" Grid.Row="2">
                         <StackPanel>
-                            <ComboBox ItemsSource="{Binding Source={StaticResource ActionValues}}"
-								SelectedValue="{Binding Action1.Type}">
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Width="30" Text="{Binding Converter={StaticResource EnumToInt}}" />
-                                            <TextBlock Text="{Binding}" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
-                            </ComboBox>
+                            <controls:EnumComboBox SelectedEnumValue="{Binding Action1.Type}" EnumSource="{x:Type metadata:ActionType}"/>
                             <ContentPresenter Content="{Binding Action1.Self}" ContentTemplateSelector="{StaticResource ActionDataTemplateSelector}" />
                         </StackPanel>
                     </GroupBox>
 
                     <!--Action Type 2-->
-                    <GroupBox Grid.Column="2" Header="Action type 2" Grid.Row="1">
+                    <GroupBox Grid.Column="2" Header="Action type 2" Grid.Row="2">
                         <StackPanel>
-                            <ComboBox ItemsSource="{Binding Source={StaticResource ActionValues}}"
-								SelectedValue="{Binding Action2.Type}">
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Width="30" Text="{Binding Converter={StaticResource EnumToInt}}" />
-                                            <TextBlock Text="{Binding}" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
-                            </ComboBox>
-
+                            <controls:EnumComboBox SelectedEnumValue="{Binding Action2.Type}" EnumSource="{x:Type metadata:ActionType}"/>
                             <ContentPresenter Content="{Binding Action2.Self}" ContentTemplateSelector="{StaticResource ActionDataTemplateSelector}" />
                         </StackPanel>
                     </GroupBox>
 
                     <!--Action Type 3-->
-                    <GroupBox Grid.Column="3" Header="Action type 3" Grid.Row="1">
+                    <GroupBox Grid.Column="3" Header="Action type 3" Grid.Row="2">
                         <StackPanel>
-                            <ComboBox ItemsSource="{Binding Source={StaticResource ActionValues}}"
-								SelectedValue="{Binding Action3.Type}">
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Width="30" Text="{Binding Converter={StaticResource EnumToInt}}" />
-                                            <TextBlock Text="{Binding}" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
-                            </ComboBox>
-
+                            <controls:EnumComboBox SelectedEnumValue="{Binding Action3.Type}" EnumSource="{x:Type metadata:ActionType}"/>
                             <ContentPresenter Content="{Binding Action3.Self}" ContentTemplateSelector="{StaticResource ActionDataTemplateSelector}" />
                         </StackPanel>
                     </GroupBox>
 
-                    <GridSplitter Grid.Row="2" Grid.ColumnSpan="4" Height="5" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" HorizontalAlignment="Stretch" />
-                    <TextBox Grid.ColumnSpan="4" Grid.Row="2" Margin="0,5,0,0"
+                    <GridSplitter Grid.Row="3" Grid.ColumnSpan="4" Height="5" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" HorizontalAlignment="Stretch" />
+                    <TextBox Grid.ColumnSpan="4" Grid.Row="3" Margin="0,5,0,0"
 						ScrollViewer.VerticalScrollBarVisibility="Visible"
 						ScrollViewer.HorizontalScrollBarVisibility="Visible" />
                 </Grid>
@@ -172,7 +120,7 @@
             </TabItem>
         </TabControl>
 
-        <StatusBar Grid.Row="2">
+        <StatusBar Grid.Row="3">
             <TextBlock Text="Status: " />
         </StatusBar>
     </Grid>
