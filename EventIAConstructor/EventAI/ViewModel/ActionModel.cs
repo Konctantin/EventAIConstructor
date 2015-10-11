@@ -40,6 +40,7 @@ namespace EventIAConstructor.EventAI.ViewModel
                     OnPropertyChanged("Self");
                     Self = this;
                     OnPropertyChanged("Self");
+                    Parent?.UpdateAll();
                 }
             }
         }
@@ -53,6 +54,7 @@ namespace EventIAConstructor.EventAI.ViewModel
                 {
                     param1 = value;
                     OnPropertyChanged();
+                    Parent?.UpdateAll();
                 }
             }
         }
@@ -66,6 +68,7 @@ namespace EventIAConstructor.EventAI.ViewModel
                 {
                     param2 = value;
                     OnPropertyChanged();
+                    Parent?.UpdateAll();
                 }
             }
         }
@@ -79,6 +82,7 @@ namespace EventIAConstructor.EventAI.ViewModel
                 {
                     param3 = value;
                     OnPropertyChanged();
+                    Parent?.UpdateAll();
                 }
             }
         }

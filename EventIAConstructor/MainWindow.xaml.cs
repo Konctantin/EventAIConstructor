@@ -51,6 +51,11 @@ namespace EventIAConstructor
                     }
                 }
             }
+
+            if (EventAIDataBase.EventAIList.Count > 0)
+            {
+                grid.SelectedIndex = 0;
+            }
         }
 
         void Button_Click(object sender, RoutedEventArgs e)
