@@ -3,7 +3,7 @@
 namespace EventIAConstructor.CommandScript
 {
     [Flags]
-    public enum TemporaryFactionFlags : int
+    public enum TemporaryFactionFlags
     {
         NONE                  = 0x00,  // When no flag is used in temporary faction change, faction will be persistent. It will then require manual change back to default/another faction when changed once
         RESTORE_RESPAWN       = 0x01,  // Default faction will be restored at respawn

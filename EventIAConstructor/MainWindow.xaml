@@ -6,6 +6,7 @@
     xmlns:controls="clr-namespace:EventIAConstructor.Common.Controls"
     x:Class="EventIAConstructor.MainWindow"
     Title="MainWindow"
+    Style="{DynamicResource KamillaStyle}"
     Height="839.05"
     Width="1326.045">
 
@@ -38,13 +39,13 @@
                         <ColumnDefinition Width="211*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="35*" />
-                        <RowDefinition Height="22*"/>
-                        <RowDefinition Height="222" />
-                        <RowDefinition Height="113" />
+                        <RowDefinition />
+                        <RowDefinition Height="96"/>
+                        <RowDefinition Height="300" />
+                        <RowDefinition Height="89" />
                     </Grid.RowDefinitions>
 
-                    <ListView IsSynchronizedWithCurrentItem="True" Grid.Row="0" Grid.ColumnSpan="4" ItemsSource="{Binding}">
+                    <ListView IsSynchronizedWithCurrentItem="True" Grid.Row="0" Grid.ColumnSpan="4" ItemsSource="{Binding}" Margin="0,0,0.302,0">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Id"         DisplayMemberBinding="{Binding Id}" />
@@ -55,10 +56,10 @@
                                 <GridViewColumn Header="Flag"       DisplayMemberBinding="{Binding EventFlags}" Width="50" />
 
                                 <GridViewColumn Header="EventType"  DisplayMemberBinding="{Binding Event.Type}" />
-                                <GridViewColumn Header="EventPara1" DisplayMemberBinding="{Binding Event.Param1}" />
-                                <GridViewColumn Header="EventPara2" DisplayMemberBinding="{Binding Event.Param2}" />
-                                <GridViewColumn Header="EventPara3" DisplayMemberBinding="{Binding Event.Param3}" />
-                                <GridViewColumn Header="EventPara4" DisplayMemberBinding="{Binding Event.Param4}" />
+                                <GridViewColumn Header="EventParam1" DisplayMemberBinding="{Binding Event.Param1}" />
+                                <GridViewColumn Header="EventParam2" DisplayMemberBinding="{Binding Event.Param2}" />
+                                <GridViewColumn Header="EventParam3" DisplayMemberBinding="{Binding Event.Param3}" />
+                                <GridViewColumn Header="EventParam4" DisplayMemberBinding="{Binding Event.Param4}" />
 
                                 <GridViewColumn Header="ActionType1" DisplayMemberBinding="{Binding Action1.Type}" />
                                 <GridViewColumn Header="ActionParam 1 1" DisplayMemberBinding="{Binding Action1.Param1}" />
@@ -70,10 +71,12 @@
                                 <GridViewColumn Header="ActionParam 2 2" DisplayMemberBinding="{Binding Action2.Param2}" />
                                 <GridViewColumn Header="ActionParam 2 3" DisplayMemberBinding="{Binding Action2.Param3}" />
 
-                                <GridViewColumn Header="ActionType3" DisplayMemberBinding="{Binding ActionType3}" />
+                                <GridViewColumn Header="ActionType3" DisplayMemberBinding="{Binding Action3.Type}" />
                                 <GridViewColumn Header="ActionParam 3 1" DisplayMemberBinding="{Binding Action3.Param1}" />
                                 <GridViewColumn Header="ActionParam 3 2" DisplayMemberBinding="{Binding Action3.Param2}" />
                                 <GridViewColumn Header="ActionParam 3 3" DisplayMemberBinding="{Binding Action3.Param3}" />
+
+                                <GridViewColumn Header="Comment" DisplayMemberBinding="{Binding Comment}" />
                             </GridView>
                         </ListView.View>
                     </ListView>
@@ -87,7 +90,7 @@
                     </GroupBox>
 
                     <!--Action Type 1-->
-                    <GroupBox Grid.Column="1" Header="Action type 1" Grid.Row="2">
+                    <GroupBox Grid.Column="1" Header="Action type 1" Grid.Row="2" >
                         <StackPanel>
                             <controls:EnumComboBox SelectedEnumValue="{Binding Action1.Type}" EnumSource="{x:Type metadata:ActionType}"/>
                             <ContentPresenter Content="{Binding Action1.Self}" ContentTemplateSelector="{StaticResource ActionDataTemplateSelector}" />
@@ -110,8 +113,8 @@
                         </StackPanel>
                     </GroupBox>
 
-                    <GridSplitter Grid.Row="3" Grid.ColumnSpan="4" Height="5" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" HorizontalAlignment="Stretch" />
-                    <TextBox Grid.ColumnSpan="4" Grid.Row="3" Margin="0,5,0,0"
+                    <GridSplitter Grid.Row="3" Grid.ColumnSpan="4" Height="5" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,0,0.302,0" />
+                    <TextBox Grid.ColumnSpan="4" Grid.Row="3" Margin="0,5,0.302,0"
 						ScrollViewer.VerticalScrollBarVisibility="Visible"
 						ScrollViewer.HorizontalScrollBarVisibility="Visible" />
                 </Grid>

@@ -5,6 +5,7 @@ namespace EventIAConstructor.EventAI.ViewModel
     public class EventAIModel : BaseViewModel
     {
         int id, creatureId, phase, chance, flag;
+        string comment;
 
         public EventAIModel(int id, int crid, int phase, int chance, int ef)
         {
@@ -61,5 +62,7 @@ namespace EventIAConstructor.EventAI.ViewModel
         ///
         /// </summary>
         public ActionModel Action3 { get; set; }
+
+        public string Comment { get { return comment; } set { if (value != comment) { comment = value; OnPropertyChanged(); } } }
     }
 }

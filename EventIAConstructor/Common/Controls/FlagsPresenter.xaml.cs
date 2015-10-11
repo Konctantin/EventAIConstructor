@@ -36,7 +36,7 @@ namespace EventIAConstructor.Common.Controls
             set { SetValue(DataSourceProperty, value); }
         }
 
-        private static void DataSourcePropertyChanged(DependencyObject dependecyObject, DependencyPropertyChangedEventArgs e)
+        static void DataSourcePropertyChanged(DependencyObject dependecyObject, DependencyPropertyChangedEventArgs e)
         {
             var flagsPresenter = dependecyObject as FlagsPresenter;
             if (flagsPresenter != null && e.NewValue != e.OldValue)

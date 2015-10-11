@@ -15,28 +15,24 @@ namespace EventIAConstructor
 
         static EventAIDataBase()
         {
-            Instance = new EventAIDataBase();
+            //foreach (var arr in testData)
+            //{
+            //    var ai = new EventAIModel(arr[0], arr[1], arr[2], arr[3], arr[4]);
+            //    var ev = new EventModel(ai, arr[5], arr[6], arr[7], arr[8], arr[9]);
+            //    var action1 = new ActionModel(ai, arr[10], arr[11], arr[12], arr[13]);
+            //    var action2 = new ActionModel(ai, arr[14], arr[15], arr[16], arr[17]);
+            //    var action3 = new ActionModel(ai, arr[18], arr[19], arr[20], arr[21]);
+            //    ai.Event = ev;
+            //    ai.Action1 = action1;
+            //    ai.Action2 = action2;
+            //    ai.Action3 = action3;
 
-            EventAIList = new ObservableCollection<EventAIModel>();
-
-            foreach (var arr in testData)
-            {
-                var ai = new EventAIModel(arr[0], arr[1], arr[2], arr[3], arr[4]);
-                var ev = new EventModel(ai, arr[5], arr[6], arr[7], arr[8], arr[9]);
-                var action1 = new ActionModel(ai, arr[10], arr[11], arr[12], arr[13]);
-                var action2 = new ActionModel(ai, arr[14], arr[15], arr[16], arr[17]);
-                var action3 = new ActionModel(ai, arr[18], arr[19], arr[20], arr[21]);
-                ai.Event = ev;
-                ai.Action1 = action1;
-                ai.Action2 = action2;
-                ai.Action3 = action3;
-
-                EventAIList.Add(ai);
-            }
+            //    EventAIList.Add(ai);
+            //}
         }
 
-        public static EventAIDataBase Instance { get; private set; }
+        public static EventAIDataBase Instance { get; private set; } = new EventAIDataBase();
 
-        public static ObservableCollection<EventAIModel> EventAIList { get; set; }
+        public static ObservableCollection<EventAIModel> EventAIList { get; set; } = new ObservableCollection<EventAIModel>();
     }
 }

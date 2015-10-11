@@ -16,7 +16,7 @@ namespace EventIAConstructor.EventAI.ViewModel
                 if (modelItem != null)
                 {
                     var name = (EventType)modelItem.Type;
-                    var template = element.FindResource($"EventType.{name}") as DataTemplate;
+                    var template = element.TryFindResource($"EventType.{name}") as DataTemplate;
                     if (template != null)
                         return template;
                 }
@@ -40,7 +40,7 @@ namespace EventIAConstructor.EventAI.ViewModel
                 if (modelItem != null && eventType == EventType.RECEIVE_EMOTE)
                 {
                     var condition = (ConditionType)modelItem.Param2;
-                    var template = element.FindResource($"ConditionType.{condition}") as DataTemplate;
+                    var template = element.TryFindResource($"ConditionType.{condition}") as DataTemplate;
                     if (template != null)
                         return template;
                 }
@@ -63,7 +63,7 @@ namespace EventIAConstructor.EventAI.ViewModel
                 if (modelItem != null)
                 {
                     var name = (ActionType)modelItem.Type;
-                    var template = element.FindResource($"ActionType.{name}") as DataTemplate;
+                    var template = element.TryFindResource($"ActionType.{name}") as DataTemplate;
                     if (template != null)
                         return template;
                 }

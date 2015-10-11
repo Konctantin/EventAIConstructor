@@ -15,6 +15,8 @@ namespace EventIAConstructor.Common.Controls
             new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.Journal | FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
                 OnFlagsSourcePropertyChanged, null, true, System.Windows.Data.UpdateSourceTrigger.PropertyChanged));
 
+        public static DependencyProperty FormatFlagProperty = DependencyProperty.Register("FormatFlag", typeof(string), typeof(ComboBoxFlags), new PropertyMetadata("0x{0:X2}"));
+
         static void OnSelectedFlagPropertyPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (e.NewValue != e.OldValue)
@@ -62,6 +64,12 @@ namespace EventIAConstructor.Common.Controls
             get { return (Type)GetValue(FlagsSourceProperty); }
             set { SetValue(FlagsSourceProperty, value); }
         }
+
+        public string FormatFlag
+        {
+            get { return (string)GetValue(FormatFlagProperty); }
+            set { SetValue(FormatFlagProperty, value); }
+        }
     }
 
     public class ComboBoxFlagsItem : BaseViewModel
@@ -87,7 +95,9 @@ namespace EventIAConstructor.Common.Controls
                 {
                     isChecked = value;
                     OnPropertyChanged();
-                    if (value)
+                    if (value && RawValue == 0)
+                        control.SelectedFlag = 0;
+                    else if (value)
                         control.SelectedFlag |= RawValue;
                     else
                         control.SelectedFlag &= ~RawValue;
@@ -98,5 +108,10 @@ namespace EventIAConstructor.Common.Controls
         public int RawValue { get; set; }
 
         public object Value { get; set; }
+
+        public override string ToString()
+        {
+            return $"{isChecked} 0x{RawValue:X8} {Value}";
+        }
     }
 }

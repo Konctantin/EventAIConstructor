@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 
 namespace EventIAConstructor.Common.Dialogs
 {
@@ -12,6 +13,21 @@ namespace EventIAConstructor.Common.Dialogs
             InitializeComponent();
         }
 
-        int IDialog.Id { get; set; }
+        public int Id { get; set; }
+
+        void CommandBinding_Open_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
+
+        void CommandBinding_Close_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            DialogResult = false;
+        }
+
+        void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            //
+        }
     }
 }

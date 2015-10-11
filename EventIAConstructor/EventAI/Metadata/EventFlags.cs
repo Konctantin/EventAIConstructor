@@ -8,6 +8,7 @@ namespace EventIAConstructor.EventAI.Metadata
     [Flags]
     public enum EventFlags
     {
+        NONE                = 0,
         /// <summary>
         /// Event repeats (Does not repeat if this flag is not set)
         /// </summary>

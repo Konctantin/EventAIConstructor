@@ -1,7 +1,7 @@
 ﻿
 namespace EventIAConstructor.CommandScript
 {
-    public enum CommandScriptType : int
+    public enum CommandScriptType
     {
         TALK                    = 0,
         EMOTE                   = 1,

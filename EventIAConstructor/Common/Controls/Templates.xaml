@@ -10,13 +10,6 @@
         </StackPanel>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type controls:EnumComboBoxItem}">
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Width="20" Text="{Binding Value}" />
-            <TextBlock Text="{Binding Name}" />
-        </StackPanel>
-    </DataTemplate>
-
     <Style TargetType="{x:Type controls:ComboBoxFlags}">
         <Setter Property="Template">
             <Setter.Value>
@@ -32,17 +25,17 @@
                                             <ColumnDefinition Width="18" />
                                         </Grid.ColumnDefinitions>
                                         <Border Grid.ColumnSpan="2" CornerRadius="2"
-                                    BorderBrush="{Binding Path=BorderBrush, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:ComboBoxFlags}}"
-                                    BorderThickness="1,1,1,1" />
+                                            BorderBrush="{Binding Path=BorderBrush, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:ComboBoxFlags}}"
+                                            BorderThickness="1,1,1,1" />
                                         <Border Grid.Column="0" CornerRadius="2"
-                                    BorderBrush="{Binding Path=BorderBrush, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:ComboBoxFlags}}"
-                                    BorderThickness="0,0,0,0">
+                                            BorderBrush="{Binding Path=BorderBrush, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:ComboBoxFlags}}"
+                                            BorderThickness="0,0,0,0">
                                             <TextBlock Padding="3" VerticalAlignment="Center"
-                                    Text="{Binding Path=SelectedFlag, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:ComboBoxFlags}, StringFormat={}0x{0:X8}}" />
+                                                Text="{Binding Path=SelectedFlag, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:ComboBoxFlags}, StringFormat={}0x{0:X8}}" />
                                         </Border>
                                         <Path x:Name="Arrow" Grid.Column="1"
-                                  Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:ComboBoxFlags}}"
-                                  HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 0 0 L 4 4 L 8 0 Z" />
+                                            Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:ComboBoxFlags}}"
+                                            HorizontalAlignment="Center" VerticalAlignment="Center" Data="M 0 0 L 4 4 L 8 0 Z" />
                                     </Grid>
                                 </ControlTemplate>
                             </ToggleButton.Template>
@@ -52,9 +45,10 @@
                             <Grid SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}"
                                     Background="{Binding Path=Background, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:ComboBoxFlags}}">
                                 <Border BorderThickness="1"
-                                    BorderBrush="{Binding Path=BorderBrush, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:ComboBoxFlags}}" />
+                                    Background="#444444" />
                                 <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True" DataContext="{Binding}">
-                                    <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
+                                    <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained"
+                                                Background="#444444" />
                                 </ScrollViewer>
                             </Grid>
                         </Popup>

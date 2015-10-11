@@ -21,13 +21,15 @@ namespace EventIAConstructor.Common.Controls
             if (e.NewValue != e.OldValue)
             {
                 var control = d as EnumComboBox;
-                if (control.ItemsSource != null)
+                var items = control.ItemsSource as IEnumerable<EnumComboBoxItem>;
+                if (items != null)
                 {
-                    foreach (var item in control.ItemsSource as IEnumerable<EnumComboBoxItem>)
+                    foreach (var item in items)
                     {
                         if (item.Value == (int)e.NewValue)
                         {
-                            control.SelectedValue = item;
+                            control.SelectedItem = item;
+                            break;
                         }
                     }
                 }
@@ -45,7 +47,7 @@ namespace EventIAConstructor.Common.Controls
                 {
                     var list = new List<EnumComboBoxItem>();
                     foreach (var item in Enum.GetValues(type))
-                        list.Add(new EnumComboBoxItem((int)item, item.ToString()));
+                        list.Add(new EnumComboBoxItem((int)item, item));
 
                     control.ItemsSource = list;
 
@@ -54,7 +56,8 @@ namespace EventIAConstructor.Common.Controls
                     {
                         if (item.Value == control.SelectedEnumValue)
                         {
-                            control.SelectedValue = item;
+                            control.SelectedItem = item;
+                            break;
                         }
                     }
                 }
@@ -69,9 +72,7 @@ namespace EventIAConstructor.Common.Controls
 
         protected override void OnSelectionChanged(SelectionChangedEventArgs e)
         {
-            var item = SelectedValue as EnumComboBoxItem;
-            SelectedEnumValue = item?.Value ?? 0;
-            SetValue(SelectedEnumValueProperty, item?.Value ?? 0);
+            SelectedEnumValue = (SelectedValue as EnumComboBoxItem)?.Value ?? 0;
             base.OnSelectionChanged(e);
         }
 
@@ -85,12 +86,17 @@ namespace EventIAConstructor.Common.Controls
     public class EnumComboBoxItem
     {
         public int Value { get; private set; }
-        public string Name { get; private set; }
+        public object Name { get; private set; }
 
-        public EnumComboBoxItem(int value, string name)
+        public EnumComboBoxItem(int value, object name)
         {
             Value = value;
             Name = name;
+        }
+
+        public override string ToString()
+        {
+            return $"{Value,-10} {Name}";
         }
     }
 }

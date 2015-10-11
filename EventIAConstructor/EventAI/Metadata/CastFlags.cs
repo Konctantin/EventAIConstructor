@@ -5,6 +5,7 @@ namespace EventIAConstructor.EventAI.Metadata
     [Flags]
     public enum CastFlags
     {
+        NONE                = 0,
         INTURRUPT_PREVIOUS  = 1,
         TRIGGERED           = 2,
         FORCE_CAST          = 4,

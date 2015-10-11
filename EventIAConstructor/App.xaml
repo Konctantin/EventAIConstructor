@@ -10,11 +10,13 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                
+                <ResourceDictionary Source="Themes/KamillaStyle.xaml" />
 
                 <ResourceDictionary Source="EventAI/Templates/ActionsDataTemplates.xaml" />
                 <ResourceDictionary Source="EventAI/Templates/EventsDataTemplates.xaml" />
                 <ResourceDictionary Source="EventAI/Templates/ConditionDataTemplate.xaml" />
-                <ResourceDictionary Source="Common/Controls/ComboBoxFlags.xaml" />
+                <ResourceDictionary Source="Common/Controls/Templates.xaml" />
 
                 <ResourceDictionary>
 

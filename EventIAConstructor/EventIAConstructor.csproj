@@ -38,6 +38,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libs\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework.Aero" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -88,14 +89,26 @@
     <Compile Include="Common\Dialogs\SpellDialog.xaml.cs">
       <DependentUpon>SpellDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EventAI\Metatdata\ActionType.cs" />
-    <Compile Include="EventAI\Metatdata\CastFlags.cs" />
-    <Compile Include="EventAI\Metatdata\ConditionType.cs" />
-    <Compile Include="EventAI\Metatdata\EventFlags.cs" />
-    <Compile Include="EventAI\Metatdata\EventType.cs" />
-    <Compile Include="EventAI\Metatdata\StandState.cs" />
-    <Compile Include="EventAI\Metatdata\TargetType.cs" />
-    <Compile Include="EventAI\Metatdata\TemporaryFaction.cs" />
+    <Compile Include="EventAI\Metadata\ActionType.cs" />
+    <Compile Include="EventAI\Metadata\CastFlags.cs" />
+    <Compile Include="EventAI\Metadata\ConditionType.cs" />
+    <Compile Include="EventAI\Metadata\DispelType.cs" />
+    <Compile Include="EventAI\Metadata\EventFlags.cs" />
+    <Compile Include="EventAI\Metadata\EventType.cs" />
+    <Compile Include="EventAI\Metadata\EventTypeMask.cs" />
+    <Compile Include="EventAI\Metadata\HolidayIds.cs" />
+    <Compile Include="EventAI\Metadata\HostileOrNot.cs" />
+    <Compile Include="EventAI\Metadata\MovementType.cs" />
+    <Compile Include="EventAI\Metadata\PlayerTeam.cs" />
+    <Compile Include="EventAI\Metadata\SheathState.cs" />
+    <Compile Include="EventAI\Metadata\SpellSchools.cs" />
+    <Compile Include="EventAI\Metadata\StandState.cs" />
+    <Compile Include="EventAI\Metadata\TargetType.cs" />
+    <Compile Include="EventAI\Metadata\Team.cs" />
+    <Compile Include="EventAI\Metadata\TemporaryFaction.cs" />
+    <Compile Include="EventAI\Metadata\TextEmotes.cs" />
+    <Compile Include="EventAI\Metadata\UnitFields.cs" />
+    <Compile Include="EventAI\Metadata\UnitFlags.cs" />
     <Compile Include="EventAI\ViewModel\ActionModel.cs" />
     <Compile Include="EventAI\ViewModel\DataTemplateSelector.cs" />
     <Compile Include="Common\BaseViewModel.cs" />
@@ -106,7 +119,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Common\Controls\ComboBoxFlags.xaml">
+    <Page Include="Common\Controls\Templates.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -159,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EventAI\Templates\EventsDataTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\KamillaStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

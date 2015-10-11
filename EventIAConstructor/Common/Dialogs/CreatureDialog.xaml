@@ -5,7 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EventIAConstructor.Common.Dialogs"
         mc:Ignorable="d"
-        Title="CreatureDialog" Height="300" Width="300">
+        Title="CreatureDialog" Height="300" Width="300" Loaded="Window_Loaded">
+    <Window.CommandBindings>
+        <CommandBinding Command="Open"  Executed="CommandBinding_Open_Executed" />
+        <CommandBinding Command="Close" Executed="CommandBinding_Close_Executed" />
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Key="Return" Modifiers="Ctrl" Command="Open" />
+        <KeyBinding Key="Esc" Command="Close" />
+    </Window.InputBindings>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="82"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="26"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="lol" Grid.Row="1" VerticalAlignment="Center" />
+        <TextBox x:Name="textBox" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Grid.ColumnSpan="2" VerticalContentAlignment="Center" />
+        <Button Content="Cencel" Grid.Column="2" Grid.Row="1" Command="Close" />
+        <Button Content="OK" Grid.Column="3" Grid.Row="1" Command="Open" />
+
+        <ListView Grid.ColumnSpan="4">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" Width="50" />
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding NameLoc}" Width="150"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>

@@ -1,6 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:metadata="clr-namespace:EventIAConstructor.EventAI.Metadata"
                     xmlns:controls="clr-namespace:EventIAConstructor.Common.Controls"
                     xmlns:local="clr-namespace:EventIAConstructor"
+                    xmlns:dialogs="clr-namespace:EventIAConstructor.Common.Dialogs"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <DataTemplate x:Key="ConditionType.NONE">
         <TextBlock Text="No params!" HorizontalAlignment="Center" Foreground="#FFFF0000" />
@@ -9,7 +11,7 @@
     <DataTemplate x:Key="ConditionType.AURA">
         <StackPanel>
             <TextBlock Text="Spell Id" />
-            <TextBox Text="{Binding Param3}" />
+            <controls:TextBoxButton Value="{Binding Param3}" DialogType="{x:Type dialogs:SpellDialog}" ToolTip="Spell id"/>
 
             <TextBlock Text="Effect index" />
             <TextBox Text="{Binding Param4}" />
@@ -19,75 +21,75 @@
     <DataTemplate x:Key="ConditionType.ITEM">
         <StackPanel>
             <TextBlock Text="Item Id" />
-            <TextBox Text="{Binding Param3}" />
+            <controls:TextBoxButton Value="{Binding Param3}" DialogType="{x:Type dialogs:ItemsDialog}" ToolTip="Item id"/>
 
             <TextBlock Text="Count" />
-            <TextBox Text="{Binding Param4}" />
+            <TextBox Text="{Binding Param4}" ToolTip="Item count" />
         </StackPanel>
     </DataTemplate>
 
     <DataTemplate x:Key="ConditionType.ITEM_EQUIPPED">
         <StackPanel>
             <TextBlock Text="Item Id" />
-            <TextBox Text="{Binding Param3}" />
+            <controls:TextBoxButton Value="{Binding Param3}" DialogType="{x:Type dialogs:ItemsDialog}" ToolTip="Item id"/>
 
             <TextBlock Text="Count" />
-            <TextBox Text="{Binding Param4}" />
+            <TextBox Text="{Binding Param4}" ToolTip="Item count" />
         </StackPanel>
     </DataTemplate>
 
     <DataTemplate x:Key="ConditionType.ZONEID">
         <StackPanel>
-            <TextBlock Text="Initial min" />
+            <TextBlock Text="Zone id" />
             <TextBox Text="{Binding Param3}" />
         </StackPanel>
     </DataTemplate>
 
     <DataTemplate x:Key="ConditionType.REPUTATION_RANK">
         <StackPanel>
-            <TextBlock Text="Initial min" />
+            <TextBlock Text="Faction id" />
             <TextBox Text="{Binding Param3}" />
 
-            <TextBlock Text="Initial max" />
+            <TextBlock Text="Min rank" />
             <TextBox Text="{Binding Param4}" />
         </StackPanel>
     </DataTemplate>
 
     <DataTemplate x:Key="ConditionType.TEAM">
         <StackPanel>
-            <TextBlock Text="Initial min" />
-            <TextBox Text="{Binding Param3}" />
+            <TextBlock Text="Player team" />
+            <controls:EnumComboBox SelectedEnumValue="{Binding Param3}" EnumSource="{x:Type metadata:PlayerTeam}" />
         </StackPanel>
     </DataTemplate>
 
     <DataTemplate x:Key="ConditionType.SKILL">
         <StackPanel>
-            <TextBlock Text="Initial min" />
+            <TextBlock Text="Skill id" />
             <TextBox Text="{Binding Param3}" />
 
-            <TextBlock Text="Initial max" />
+            <TextBlock Text="Min skill value" />
             <TextBox Text="{Binding Param4}" />
         </StackPanel>
     </DataTemplate>
 
     <DataTemplate x:Key="ConditionType.QUESTREWARDED">
         <StackPanel>
-            <TextBlock Text="Initial min" />
-            <TextBox Text="{Binding Param3}" />
+            <TextBlock Text="Quest id" />
+            <controls:TextBoxButton Value="{Binding Param3}" DialogType="{x:Type dialogs:QuestDialog}" ToolTip="0, if quest are rewarded"/>
         </StackPanel>
     </DataTemplate>
 
     <DataTemplate x:Key="ConditionType.QUESTTAKEN">
         <StackPanel>
-            <TextBlock Text="Initial min" />
-            <TextBox Text="{Binding Param3}" />
+            <TextBlock Text="Quest id" />
+            <controls:TextBoxButton Value="{Binding Param3}" DialogType="{x:Type dialogs:QuestDialog}" ToolTip="0, while quest active(incomplete)"/>
         </StackPanel>
     </DataTemplate>
 
     <DataTemplate x:Key="ConditionType.ACTIVE_EVENT">
         <StackPanel>
             <TextBlock Text="Event Id" />
-            <TextBox Text="{Binding Param3}" />
+            <controls:EnumComboBox SelectedEnumValue="{Binding Param3}" EnumSource="{x:Type metadata:HolidayIds}" ToolTip="0, note this is id from dbc, also defined in Mangos source(enum HolidayIds) NOT id of game_event in database" />
         </StackPanel>
     </DataTemplate>
 

@@ -45,6 +45,8 @@ namespace EventIAConstructor
                         ai.Action1 = ac[0];
                         ai.Action2 = ac[1];
                         ai.Action3 = ac[2];
+                        ai.Comment = reader.GetString(22);
+
                         EventAIDataBase.EventAIList.Add(ai);
                     }
                 }
