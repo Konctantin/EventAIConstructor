@@ -19,8 +19,7 @@ namespace EventIAConstructor.EventAI.ViewModel
         }
 
         /// <summary>
-        /// This value is merely an incrementing counter of the current Event number.
-        /// Required for sql queries.
+        /// This value is merely an incrementing counter of the current Event number. Required for sql queries.
         /// (ACID Standards: CreatureID+Additional 2 digit Incriment Starting with 01)
         /// </summary>
         public int Id { get { return id; } set { if (value != id) { id = value; UpdateAll(); } } }

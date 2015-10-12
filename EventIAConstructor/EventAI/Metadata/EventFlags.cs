@@ -28,6 +28,6 @@ namespace EventIAConstructor.EventAI.Metadata
         /// <summary>
         /// Prevents events from occuring on Release builds. Useful for testing new features.
         /// </summary>
-        EFLAG_DEBUG_ONLY    = 128,
+        DEBUG_ONLY          = 128,
     }
 }

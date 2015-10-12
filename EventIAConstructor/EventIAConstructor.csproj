@@ -99,6 +99,7 @@
     <Compile Include="EventAI\Metadata\HolidayIds.cs" />
     <Compile Include="EventAI\Metadata\HostileOrNot.cs" />
     <Compile Include="EventAI\Metadata\MovementType.cs" />
+    <Compile Include="EventAI\Metadata\PhaseMask.cs" />
     <Compile Include="EventAI\Metadata\PlayerTeam.cs" />
     <Compile Include="EventAI\Metadata\SheathState.cs" />
     <Compile Include="EventAI\Metadata\SpellSchools.cs" />
