@@ -96,7 +96,7 @@ namespace EventIAConstructor.Common.Controls
 
         public override string ToString()
         {
-            return $"{Value,-10} {Name}";
+            return $"^{Value,-10} {Name}";
         }
     }
 }

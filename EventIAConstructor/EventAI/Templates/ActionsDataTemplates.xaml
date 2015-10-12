@@ -22,13 +22,13 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="TextId 1" />
-            <TextBox   Text="{Binding Param1}" ToolTip="The entry of the text that the NPC should use from eventai_texts table. Optionally a entry from other tables can be used (such as custom_texts)." />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}" ToolTip="The entry of the text that the NPC should use from eventai_texts table. Optionally a entry from other tables can be used (such as custom_texts)." />
 
             <TextBlock Text="TextId 2" />
-            <TextBox   Text="{Binding Param2}" ToolTip="Optional. TextId can be defined in addition. The same apply to this as explained above, however eventAI will randomize between the two." />
+            <TextBox   Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="Optional. TextId can be defined in addition. The same apply to this as explained above, however eventAI will randomize between the two." />
 
             <TextBlock Text="TextId 3" />
-            <TextBox   Text="{Binding Param3}" ToolTip="Optional, if Parameter 2 exist. In this case, eventAI will randomize between three." />
+            <TextBox   Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" ToolTip="Optional, if Parameter 2 exist. In this case, eventAI will randomize between three." />
         </StackPanel>
     </DataTemplate>
 
@@ -39,7 +39,7 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="Faction Id" />
-            <TextBox   Text="{Binding Param1}" ToolTip="FactionId from Faction.dbc OR 0. Changes faction for creature. If 0, creature will revert to it's default faction if previously changed." />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}" ToolTip="FactionId from Faction.dbc OR 0. Changes faction for creature. If 0, creature will revert to it's default faction if previously changed." />
 
             <TextBlock Text="Flags" />
             <controls:ComboBoxFlags  FlagsSource="{x:Type metadata:TemporaryFaction}" SelectedFlag="{Binding Param2}" ToolTip="When Parameter 1 is not 0, flags can be used to restore default faction at certain events." />
@@ -53,10 +53,10 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="Creature entry" />
-            <TextBox   Text="{Binding Param1}" ToolTip="Creature entry from creature_template. Action will then change to the model this creature are using." />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}" ToolTip="Creature entry from creature_template. Action will then change to the model this creature are using." />
 
             <TextBlock Text="Model Id" />
-            <TextBox   Text="{Binding Param2}" ToolTip="If parameter 1 is 0, then this modelId will be used (in case parameter 1 exist, parameter 2 will not be used)" />
+            <TextBox   Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="If parameter 1 is 0, then this modelId will be used (in case parameter 1 exist, parameter 2 will not be used)" />
         </StackPanel>
     </DataTemplate>
 
@@ -67,7 +67,7 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="SoundId" />
-            <TextBox   Text="{Binding Param1}" ToolTip="The Sound ID to be played. (Sound IDs are contained in the DBC files.)" />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}" ToolTip="The Sound ID to be played. (Sound IDs are contained in the DBC files.)" />
         </StackPanel>
     </DataTemplate>
 
@@ -78,7 +78,7 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="EmoteId" />
-            <TextBox   Text="{Binding Param1}" ToolTip="The Emote ID that the creature should perform. (Emote IDs are also contained in the DBC but they can be found in the mangos source as well)." />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}" ToolTip="The Emote ID that the creature should perform. (Emote IDs are also contained in the DBC but they can be found in the mangos source as well)." />
         </StackPanel>
     </DataTemplate>
 
@@ -89,13 +89,13 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="SoundId 1" />
-            <TextBox   Text="{Binding Param1}" ToolTip="The Sound ID to be played as Random Choice #1." />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}" ToolTip="The Sound ID to be played as Random Choice #1." />
 
             <TextBlock Text="SoundId 2" />
-            <TextBox   Text="{Binding Param2}" ToolTip="The Sound ID to be played as Random Choice #2." />
+            <TextBox   Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="The Sound ID to be played as Random Choice #2." />
 
             <TextBlock Text="SoundId 3" />
-            <TextBox   Text="{Binding Param3}" ToolTip="The Sound ID to be played as Random Choice #3." />
+            <TextBox   Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" ToolTip="The Sound ID to be played as Random Choice #3." />
         </StackPanel>
     </DataTemplate>
 
@@ -106,13 +106,13 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="EmoteId 1" />
-            <TextBox   Text="{Binding Param1}" ToolTip="The Emote ID to be played as Random Choice #1." />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}" ToolTip="The Emote ID to be played as Random Choice #1." />
 
             <TextBlock Text="EmoteId 2" />
-            <TextBox   Text="{Binding Param2}" ToolTip="The Emote ID to be played as Random Choice #2." />
+            <TextBox   Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="The Emote ID to be played as Random Choice #2." />
 
             <TextBlock Text="EmoteId 3" />
-            <TextBox   Text="{Binding Param3}" ToolTip="The Emote ID to be played as Random Choice #3." />
+            <TextBox   Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" ToolTip="The Emote ID to be played as Random Choice #3." />
         </StackPanel>
     </DataTemplate>
 
@@ -146,7 +146,7 @@
             <controls:EnumComboBox EnumSource="{x:Type metadata:TargetType}"  SelectedEnumValue="{Binding Param2}"  ToolTip="The Target Type defining who the Summoned creature will attack once spawned. The value in this field needs to be a valid Target Type as specified in the reference tables below." />
 
             <TextBlock Text="Duration" />
-            <TextBox   Text="{Binding Param3}" ToolTip="The duration until the summoned creature should be unsummoned AFTER Combat ends. The value in this field is in milliseconds or 0." />
+            <TextBox   Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" ToolTip="The duration until the summoned creature should be unsummoned AFTER Combat ends. The value in this field is in milliseconds or 0." />
         </StackPanel>
     </DataTemplate>
 
@@ -157,7 +157,7 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="Threat (%)" />
-            <TextBox   Text="{Binding Param1}"  ToolTip="Threat percent that should be modified. The value in this field can range from -100 to +100. If it is negative, threat will be taken away and if positive, threat will be added." />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}"  ToolTip="Threat percent that should be modified. The value in this field can range from -100 to +100. If it is negative, threat will be taken away and if positive, threat will be added." />
 
             <TextBlock Text="Target" />
             <controls:EnumComboBox EnumSource="{x:Type metadata:TargetType}"  SelectedEnumValue="{Binding Param2}" ToolTip="The Target Type defining on whom the threat change should occur. The value in this field needs to be a valid target type as specified in the reference tables below." />
@@ -171,7 +171,7 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="Threat (%)" />
-            <TextBox   Text="{Binding Param1}"  ToolTip="The percent that should be used in modifying everyone's threat in the creature's threat list. The value here can range from -100 to +100." />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}"  ToolTip="The percent that should be used in modifying everyone's threat in the creature's threat list. The value here can range from -100 to +100." />
         </StackPanel>
     </DataTemplate>
 
@@ -214,9 +214,9 @@
             <Separator />
             <TextBlock Text="Field number" />
             <controls:EnumComboBox SelectedEnumValue="{Binding Param1}" EnumSource="{x:Type metadata:UnitFields}" ToolTip="The index of the Field Number to be changed. Use (http://wiki.udbforums.org/index.php/Character_data) for a list of indeces and what they control. Creatures only contain the OBJECT_FIELD_* and UNIT_FIELD_* fields. They do not contain the PLAYER_FIELD_* fields."/>
-            
+
             <TextBlock Text="Value" />
-            <TextBox   Text="{Binding Param2}" ToolTip="The new value to be put in the field." />
+            <TextBox   Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="The new value to be put in the field." />
 
             <TextBlock Text="Target" />
             <controls:EnumComboBox EnumSource="{x:Type metadata:TargetType}"  SelectedEnumValue="{Binding Param3}" ToolTip="The Target Type defining for whom the unit field should be changed. The value in this field needs to be a valid target type as specified in the reference tables below." />
@@ -258,7 +258,7 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="Allow auto attack" />
-            <TextBox   Text="{Binding Param1}"  ToolTip="If zero, then the creature will stop its melee attacks. If non-zero, then the creature will either continue its melee attacks (the action would then have no effect) or it will start its melee attacks on the target with the top threat if its melee attacks were previously stopped." />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}"  ToolTip="If zero, then the creature will stop its melee attacks. If non-zero, then the creature will either continue its melee attacks (the action would then have no effect) or it will start its melee attacks on the target with the top threat if its melee attacks were previously stopped." />
         </StackPanel>
     </DataTemplate>
 
@@ -269,10 +269,10 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="Allow combat movement" />
-            <TextBox   Text="{Binding Param1}"  ToolTip="If zero, then the creature will stop moving towards its victim (if its victim gets out of melee range) and will be stationary. If non-zero, then the creature will either continue to follow its victim (the action would have no effect) or it will start to follow the target with the top threat if its movement was disabled before." />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}"  ToolTip="If zero, then the creature will stop moving towards its victim (if its victim gets out of melee range) and will be stationary. If non-zero, then the creature will either continue to follow its victim (the action would have no effect) or it will start to follow the target with the top threat if its movement was disabled before." />
 
             <TextBlock Text="param 2" />
-            <TextBox Text="{Binding Param2}" ToolTip="If non-zero, then stop melee combat state (if param1=0) or start melee combat state (if param1!=0) and creature in combat with selected target." />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="If non-zero, then stop melee combat state (if param1=0) or start melee combat state (if param1!=0) and creature in combat with selected target." />
         </StackPanel>
     </DataTemplate>
 
@@ -283,7 +283,7 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="Phase" />
-            <TextBox   Text="{Binding Param1}"  ToolTip="The new phase to set the creature in. This number must be an integer between 0 and 31. Numbers outside of that range will result in an error." />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}"  ToolTip="The new phase to set the creature in. This number must be an integer between 0 and 31. Numbers outside of that range will result in an error." />
         </StackPanel>
     </DataTemplate>
 
@@ -294,7 +294,7 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="Value" />
-            <TextBox   Text="{Binding Param1}"  ToolTip="The number of phases to increase or decrease. Use negative values to decrease the current phase." />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}"  ToolTip="The number of phases to increase or decrease. Use negative values to decrease the current phase." />
         </StackPanel>
     </DataTemplate>
 
@@ -364,10 +364,10 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="Distance" />
-            <TextBox   Text="{Binding Param1}"   ToolTip="Distance - The distance the mob should keep between it and its target." />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}"   ToolTip="Distance - The distance the mob should keep between it and its target." />
 
             <TextBlock Text="Angle" />
-            <TextBox   Text="{Binding Param2}"   ToolTip="The angle the mob should use." />
+            <TextBox   Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}"   ToolTip="The angle the mob should use." />
         </StackPanel>
     </DataTemplate>
 
@@ -378,13 +378,13 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="PhaseId 1" />
-            <TextBox   Text="{Binding Param1}"  ToolTip="A possible random phase choice." />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}"  ToolTip="A possible random phase choice." />
 
             <TextBlock Text="PhaseId 2" />
-            <TextBox   Text="{Binding Param2}"   ToolTip="A possible random phase choice." />
+            <TextBox   Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}"   ToolTip="A possible random phase choice." />
 
             <TextBlock Text="PhaseId 3" />
-            <TextBox   Text="{Binding Param3}"  ToolTip="A possible random phase choice." />
+            <TextBox   Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}"  ToolTip="A possible random phase choice." />
         </StackPanel>
     </DataTemplate>
 
@@ -395,10 +395,10 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="PhaseMin" />
-            <TextBox   Text="{Binding Param1}"  ToolTip="The minimum of the phase range." />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}"  ToolTip="The minimum of the phase range." />
 
             <TextBlock Text="PhaseMax" />
-            <TextBox   Text="{Binding Param2}"  ToolTip="The maximum of the phase range. The number here must be greater than PhaseMin." />
+            <TextBox   Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}"  ToolTip="The maximum of the phase range. The number here must be greater than PhaseMin." />
         </StackPanel>
     </DataTemplate>
 
@@ -409,13 +409,13 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="CreatureID" />
-            <TextBox   Text="{Binding Param1}"  ToolTip="The creature template ID to be summoned. The value here needs to be a valid creature template ID." />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}"  ToolTip="The creature template ID to be summoned. The value here needs to be a valid creature template ID." />
 
             <TextBlock Text="Target" />
             <controls:EnumComboBox EnumSource="{x:Type metadata:TargetType}"  SelectedEnumValue="{Binding Param2}" ToolTip="The target type defining who the summoned creature will attack. The value in this field needs to be a valid target type as specified in the reference tables below. NOTE: Using target type 0 will cause the summoned creature to not attack anyone." />
 
             <TextBlock Text="SummonID" />
-            <TextBox   Text="{Binding Param3}"  ToolTip="The summon ID from the creature_ai_summons table controlling the position (and spawntime) where the summoned mob should be spawned at." />
+            <TextBox   Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}"  ToolTip="The summon ID from the creature_ai_summons table controlling the position (and spawntime) where the summoned mob should be spawned at." />
         </StackPanel>
     </DataTemplate>
 
@@ -426,7 +426,7 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="CreatureID" />
-            <TextBox   Text="{Binding Param1}"  ToolTip="The creature template ID. The value here must be a valid creature template ID." />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}"  ToolTip="The creature template ID. The value here must be a valid creature template ID." />
 
             <TextBlock Text="Target" />
             <controls:EnumComboBox EnumSource="{x:Type metadata:TargetType}"  SelectedEnumValue="{Binding Param2}"  ToolTip="The target type defining whom the quest kill count should be given to. The value in this field needs to be a valid target type as specified in the reference tables below." />
@@ -440,10 +440,10 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="Field" />
-            <TextBox   Text="{Binding Param1}"  ToolTip="The field to change in the instance script. Again, this field needs to be a valid field that has been already defined in the instance's script." />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}"  ToolTip="The field to change in the instance script. Again, this field needs to be a valid field that has been already defined in the instance's script." />
 
             <TextBlock Text="Data" />
-            <TextBox   Text="{Binding Param2}"  ToolTip="The value to put at that field index." />
+            <TextBox   Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}"  ToolTip="The value to put at that field index." />
         </StackPanel>
     </DataTemplate>
 
@@ -455,7 +455,7 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="Field" />
-            <TextBox   Text="{Binding Param1}"  ToolTip="The field to change in the instance script. Again, this field needs to be a valid field that has been already defined in the instance's script." />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}"  ToolTip="The field to change in the instance script. Again, this field needs to be a valid field that has been already defined in the instance's script." />
 
             <TextBlock Text="Target" />
             <controls:EnumComboBox EnumSource="{x:Type metadata:TargetType}"  SelectedEnumValue="{Binding Param2}"  ToolTip="The target type to use to get the GUID that will be stored at the field index. The value in this field needs to be a valid target type as specified in the reference tables below." />
@@ -469,7 +469,7 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="TemplateId" />
-            <TextBox   Text="{Binding Param1}"  ToolTip="The creature template ID. The value here must be a valid creature template ID." />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}"  ToolTip="The creature template ID. The value here must be a valid creature template ID." />
 
             <TextBlock Text="Team" />
             <controls:EnumComboBox SelectedEnumValue="{Binding Param2}" EnumSource="{x:Type metadata:Team}" ToolTip="Use model_id from team : Alliance(0) or Horde (1)."/>
@@ -503,7 +503,7 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="Radius" />
-            <TextBox   Text="{Binding Param1}"  ToolTip="All friendly (not only same faction) creatures will go to help" />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}"  ToolTip="All friendly (not only same faction) creatures will go to help" />
         </StackPanel>
     </DataTemplate>
 
@@ -525,7 +525,7 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="Delay" />
-            <TextBox   Text="{Binding Param1}"  ToolTip="Sets delay time until Despawn occurs after triggering the action. Time is in (ms)." />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}"  ToolTip="Sets delay time until Despawn occurs after triggering the action. Time is in (ms)." />
         </StackPanel>
     </DataTemplate>
 
@@ -536,10 +536,10 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="HP_Level" />
-            <TextBox   Text="{Binding Param1}"  ToolTip="Sets Paramater 1 as an exact HP value" />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}"  ToolTip="Sets Paramater 1 as an exact HP value" />
 
             <TextBlock Text="HP_Percent" />
-            <TextBox   Text="{Binding Param2}"  ToolTip="Sets Paramater 1 as a HP Percent (0..100) of the creature's max health" />
+            <TextBox   Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}"  ToolTip="Sets Paramater 1 as a HP Percent (0..100) of the creature's max health" />
         </StackPanel>
     </DataTemplate>
 
@@ -550,10 +550,10 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="CreatureEntry" />
-            <TextBox   Text="{Binding Param1}"   ToolTip="Optional: Set mount model from creature_template.entry" />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}"   ToolTip="Optional: Set mount model from creature_template.entry" />
 
             <TextBlock Text="ModelId" />
-            <TextBox   Text="{Binding Param2}"  ToolTip="Optional: Set mount model by explicit modelId" />
+            <TextBox   Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}"  ToolTip="Optional: Set mount model by explicit modelId" />
         </StackPanel>
     </DataTemplate>
 
@@ -564,13 +564,13 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="Chance" />
-            <TextBox   Text="{Binding Param1}"  ToolTip="Chance with which a text will be displayed (must be between 1 and 99)" />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}"  ToolTip="Chance with which a text will be displayed (must be between 1 and 99)" />
 
             <TextBlock Text="TextId 1" />
-            <TextBox   Text="{Binding Param2}"  ToolTip="The entry of the text that the NPC should use from eventai_texts table. Optionally a entry from other tables can be used (such as custom_texts)." />
+            <TextBox   Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}"  ToolTip="The entry of the text that the NPC should use from eventai_texts table. Optionally a entry from other tables can be used (such as custom_texts)." />
 
             <TextBlock Text="TextId 2" />
-            <TextBox   Text="{Binding Param3}"  ToolTip="Optional TextId can be defined in addition. The same apply to this as explained above, however eventAI will randomize between the two." />
+            <TextBox   Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}"  ToolTip="Optional TextId can be defined in addition. The same apply to this as explained above, however eventAI will randomize between the two." />
         </StackPanel>
     </DataTemplate>
 
@@ -584,7 +584,7 @@
             <controls:EnumComboBox SelectedEnumValue="{Binding Param1}" EnumSource="{x:Type metadata:EventType}" ToolTip="What AIEvent to throw, supported types see CreatureAI.h enum AIEventType" />
 
             <TextBlock Text="Radius" />
-            <TextBox   Text="{Binding Param2}"  ToolTip="Throw the AIEvent to nearby friendly creatures within this range" />
+            <TextBox   Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}"  ToolTip="Throw the AIEvent to nearby friendly creatures within this range" />
         </StackPanel>
     </DataTemplate>
 
@@ -620,20 +620,20 @@
             <controls:EnumComboBox SelectedEnumValue="{Binding Param1}" EnumSource="{x:Type metadata:MovementType}" ToolTip="Movement type id to be used by the creature."/>
 
             <TextBlock Text="Wander distance" />
-            <TextBox Text="{Binding Param2}" ToolTip="Wander distance to be used in case the movement type is 1 (Random)." />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="Wander distance to be used in case the movement type is 1 (Random)." />
         </StackPanel>
     </DataTemplate>
 
     <DataTemplate x:Key="ActionType.NOT_IMPLEMENTED">
         <StackPanel>
             <TextBlock Text="Param 1" />
-            <TextBox   Text="{Binding Param1}" />
+            <TextBox   Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}" />
 
             <TextBlock Text="Param 2" />
-            <TextBox   Text="{Binding Param2}" />
+            <TextBox   Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" />
 
             <TextBlock Text="Param 3" />
-            <TextBox   Text="{Binding Param3}" />
+            <TextBox   Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
     </DataTemplate>
 </ResourceDictionary>

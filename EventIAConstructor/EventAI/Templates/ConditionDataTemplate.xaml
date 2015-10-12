@@ -14,7 +14,7 @@
             <controls:TextBoxButton Value="{Binding Param3}" DialogType="{x:Type dialogs:SpellDialog}" ToolTip="Spell id"/>
 
             <TextBlock Text="Effect index" />
-            <TextBox Text="{Binding Param4}" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
     </DataTemplate>
 
@@ -24,7 +24,7 @@
             <controls:TextBoxButton Value="{Binding Param3}" DialogType="{x:Type dialogs:ItemsDialog}" ToolTip="Item id"/>
 
             <TextBlock Text="Count" />
-            <TextBox Text="{Binding Param4}" ToolTip="Item count" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}" ToolTip="Item count" />
         </StackPanel>
     </DataTemplate>
 
@@ -34,24 +34,24 @@
             <controls:TextBoxButton Value="{Binding Param3}" DialogType="{x:Type dialogs:ItemsDialog}" ToolTip="Item id"/>
 
             <TextBlock Text="Count" />
-            <TextBox Text="{Binding Param4}" ToolTip="Item count" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}" ToolTip="Item count" />
         </StackPanel>
     </DataTemplate>
 
     <DataTemplate x:Key="ConditionType.ZONEID">
         <StackPanel>
             <TextBlock Text="Zone id" />
-            <TextBox Text="{Binding Param3}" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
     </DataTemplate>
 
     <DataTemplate x:Key="ConditionType.REPUTATION_RANK">
         <StackPanel>
             <TextBlock Text="Faction id" />
-            <TextBox Text="{Binding Param3}" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" />
 
             <TextBlock Text="Min rank" />
-            <TextBox Text="{Binding Param4}" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
     </DataTemplate>
 
@@ -65,10 +65,10 @@
     <DataTemplate x:Key="ConditionType.SKILL">
         <StackPanel>
             <TextBlock Text="Skill id" />
-            <TextBox Text="{Binding Param3}" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" />
 
             <TextBlock Text="Min skill value" />
-            <TextBox Text="{Binding Param4}" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
     </DataTemplate>
 
@@ -96,10 +96,10 @@
     <DataTemplate x:Key="ConditionType.NOT_IMPLEMENTED">
         <StackPanel>
             <TextBlock Text="Param3" />
-            <TextBox Text="{Binding Param3}" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" />
 
             <TextBlock Text="Param4" />
-            <TextBox Text="{Binding Param4}" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
     </DataTemplate>
 </ResourceDictionary>

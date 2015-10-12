@@ -14,16 +14,16 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="Initial min" />
-            <TextBox Text="{Binding Param1}" ToolTip="Minumum Time used to calculate Random Initial Expire" />
+            <TextBox Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}" ToolTip="Minumum Time used to calculate Random Initial Expire" />
 
             <TextBlock Text="Initial max" />
-            <TextBox Text="{Binding Param2}" ToolTip="Maximum Time used to calculate Random Initial Expire" />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="Maximum Time used to calculate Random Initial Expire" />
 
             <TextBlock Text="Repeat min" />
-            <TextBox Text="{Binding Param3}" ToolTip="Minimum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" ToolTip="Minimum Time used to calculate Random Repeat Expire" />
 
             <TextBlock Text="Repeate max" />
-            <TextBox Text="{Binding Param4}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
         </StackPanel>
     </DataTemplate>
 
@@ -34,16 +34,16 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="Initial min" />
-            <TextBox Text="{Binding Param1}" ToolTip="Minimum Time used to calculate Random Initial Event Expire" />
+            <TextBox Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}" ToolTip="Minimum Time used to calculate Random Initial Event Expire" />
 
             <TextBlock Text="Initial max" />
-            <TextBox Text="{Binding Param2}" ToolTip="Maximum Time used to calculate Random Initial Event Expire" />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="Maximum Time used to calculate Random Initial Event Expire" />
 
             <TextBlock Text="Repeate min" />
-            <TextBox Text="{Binding Param3}" ToolTip="Minimum Time used to calculate Random Repeat Event Expire" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" ToolTip="Minimum Time used to calculate Random Repeat Event Expire" />
 
             <TextBlock Text="Repeate max" />
-            <TextBox Text="{Binding Param4}" ToolTip="Maximum Time used to calculate Random Repeat Event Expire" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}" ToolTip="Maximum Time used to calculate Random Repeat Event Expire" />
         </StackPanel>
     </DataTemplate>
 
@@ -54,16 +54,16 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="HP max" />
-            <TextBox Text="{Binding Param1}" ToolTip="Maximum HP% That will trigger this Event to Expire" />
+            <TextBox Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}" ToolTip="Maximum HP% That will trigger this Event to Expire" />
 
             <TextBlock Text="HP min" />
-            <TextBox Text="{Binding Param2}" ToolTip="Minimum HP% That will trigger this Event to Expire" />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="Minimum HP% That will trigger this Event to Expire" />
 
             <TextBlock Text="Repeat min" />
-            <TextBox Text="{Binding Param3}" ToolTip="Minimum Time used to calculate Random Repeat Event Expire" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" ToolTip="Minimum Time used to calculate Random Repeat Event Expire" />
 
             <TextBlock Text="Repeate max" />
-            <TextBox Text="{Binding Param4}" ToolTip="RepeatMax - Maximum Time used to calculate Random Repeat Event Expire" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}" ToolTip="RepeatMax - Maximum Time used to calculate Random Repeat Event Expire" />
         </StackPanel>
     </DataTemplate>
 
@@ -74,16 +74,16 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="Mana max" />
-            <TextBox Text="{Binding Param1}" ToolTip="Maximum Mana% That will trigger this Event to Expire" />
+            <TextBox Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}" ToolTip="Maximum Mana% That will trigger this Event to Expire" />
 
             <TextBlock Text="Mana min" />
-            <TextBox Text="{Binding Param2}" ToolTip="Minimum Mana% That will trigger this Event to Expire" />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="Minimum Mana% That will trigger this Event to Expire" />
 
             <TextBlock Text="Repeat min" />
-            <TextBox Text="{Binding Param3}" ToolTip="Minimum Time used to calculate Random Repeat Event Expire" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" ToolTip="Minimum Time used to calculate Random Repeat Event Expire" />
 
             <TextBlock Text="Repeate max" />
-            <TextBox Text="{Binding Param4}"  ToolTip="Maximum Time used to calculate Random Repeat Event Expire" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}"  ToolTip="Maximum Time used to calculate Random Repeat Event Expire" />
         </StackPanel>
     </DataTemplate>
 
@@ -104,10 +104,10 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="Repeat min" />
-            <TextBox Text="{Binding Param1}"  ToolTip="Minimum Time used to calculate Random Repeat Event Expire" />
+            <TextBox Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}"  ToolTip="Minimum Time used to calculate Random Repeat Event Expire" />
 
             <TextBlock Text="Repeate max" />
-            <TextBox Text="{Binding Param2}"  ToolTip="Maximum Time used to calculate Random Repeat Event Expire" />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}"  ToolTip="Maximum Time used to calculate Random Repeat Event Expire" />
         </StackPanel>
     </DataTemplate>
 
@@ -146,16 +146,13 @@
             <TextBlock Text="School mask" />
             <controls:ComboBoxFlags SelectedFlag="{Binding Param2}" FlagsSource="{x:Type metadata:SpellSchoolMask}"
                                     ToolTip="Spell School to trigger the Event (NOTE: If you use a SpellID then ALWAYS set this value to -1) - *See Below for Spell School Bitmask Values*">
-                <controls:ComboBoxFlags.Triggers>
-                    <!-- todo: implement -->
-                </controls:ComboBoxFlags.Triggers>
             </controls:ComboBoxFlags>
 
             <TextBlock Text="Repeate min" />
-            <TextBox Text="{Binding Param3}" ToolTip="Minimum Time used to calculate Random Repeat Event Expire" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" ToolTip="Minimum Time used to calculate Random Repeat Event Expire" />
 
             <TextBlock Text="Repeate max" />
-            <TextBox Text="{Binding Param4}"  ToolTip="Maximum Time used to calculate Random Repeat Event Expire" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}"  ToolTip="Maximum Time used to calculate Random Repeat Event Expire" />
         </StackPanel>
     </DataTemplate>
 
@@ -167,16 +164,16 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="Min dist" />
-            <TextBox Text="{Binding Param1}" ToolTip="This Distance is the Minimum Distance between the NPC and it's target to allow this Event to Expire" />
+            <TextBox Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}" ToolTip="This Distance is the Minimum Distance between the NPC and it's target to allow this Event to Expire" />
 
             <TextBlock Text="Max dist" />
-            <TextBox Text="{Binding Param2}" ToolTip="This Distance is the Maximum Distance between the NPC and it's target to allow this Event to Expire" />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="This Distance is the Maximum Distance between the NPC and it's target to allow this Event to Expire" />
 
             <TextBlock Text="Repeate min" />
-            <TextBox Text="{Binding Param3}" ToolTip="Minimum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" ToolTip="Minimum Time used to calculate Random Repeat Expire" />
 
             <TextBlock Text="Repeate max" />
-            <TextBox Text="{Binding Param4}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
         </StackPanel>
     </DataTemplate>
 
@@ -193,13 +190,13 @@
             <controls:EnumComboBox SelectedEnumValue="{Binding Param1}" EnumSource="{x:Type metadata:HostileOrNot}" ToolTip="This will expire if Unit are hostile. If Param1=1 it will only expire if Unit are not Hostile(generally determined by faction)"/>
 
             <TextBlock Text="Max allowed range" />
-            <TextBox Text="{Binding Param2}" ToolTip="Expires when a Unit moves within this distance to creature" />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="Expires when a Unit moves within this distance to creature" />
 
             <TextBlock Text="Repeate min" />
-            <TextBox Text="{Binding Param3}" ToolTip="Minimum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" ToolTip="Minimum Time used to calculate Random Repeat Expire" />
 
             <TextBlock Text="Repeate max" />
-            <TextBox Text="{Binding Param4}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
         </StackPanel>
     </DataTemplate>
 
@@ -210,10 +207,10 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="Param 1" />
-            <TextBox Text="{Binding Param1}" ToolTip="0: works always, 1: works on map in Parameter 2, 2: works on zone/subzone in Parameter 2" />
+            <TextBox Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}" ToolTip="0: works always, 1: works on map in Parameter 2, 2: works on zone/subzone in Parameter 2" />
 
             <TextBlock Text="Param 2" />
-            <TextBox Text="{Binding Param2}" ToolTip="depends on Parameter 1: for 1 it is map ID, for 2 it is area ID to check" />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="depends on Parameter 1: for 1 it is map ID, for 2 it is area ID to check" />
         </StackPanel>
     </DataTemplate>
 
@@ -225,16 +222,16 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="HP max" />
-            <TextBox Text="{Binding Param1}" ToolTip="Maximum HP% That this Event will Expire" />
+            <TextBox Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}" ToolTip="Maximum HP% That this Event will Expire" />
 
             <TextBlock Text="HP min" />
-            <TextBox Text="{Binding Param2}" ToolTip="Minimum HP% That this Event will Expire" />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="Minimum HP% That this Event will Expire" />
 
             <TextBlock Text="Repeate min" />
-            <TextBox Text="{Binding Param3}" ToolTip="Minimum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" ToolTip="Minimum Time used to calculate Random Repeat Expire" />
 
             <TextBlock Text="Repeate max" />
-            <TextBox Text="{Binding Param4}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
         </StackPanel>
     </DataTemplate>
 
@@ -245,10 +242,10 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="Repeate min" />
-            <TextBox Text="{Binding Param1}" ToolTip="Minimum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}" ToolTip="Minimum Time used to calculate Random Repeat Expire" />
 
             <TextBlock Text="Repeate max" />
-            <TextBox Text="{Binding Param2}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
         </StackPanel>
     </DataTemplate>
 
@@ -260,16 +257,16 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="HP deficit" />
-            <TextBox Text="{Binding Param1}" ToolTip="This is the Amount of HP Missing from Full HP to trigger this event (You would need to calculate the amount of HP the event happens and subtract that from Full HP Value to get this number)" />
+            <TextBox Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}" ToolTip="This is the Amount of HP Missing from Full HP to trigger this event (You would need to calculate the amount of HP the event happens and subtract that from Full HP Value to get this number)" />
 
             <TextBlock Text="Radius" />
-            <TextBox Text="{Binding Param2}" ToolTip="This is the Range in Yards the NPC will scan for nearby Friendlies (Faction is Friendly To) for the missing amount of HP in Param1." />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="This is the Range in Yards the NPC will scan for nearby Friendlies (Faction is Friendly To) for the missing amount of HP in Param1." />
 
             <TextBlock Text="Repeate min" />
-            <TextBox Text="{Binding Param3}" ToolTip="Minimum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" ToolTip="Minimum Time used to calculate Random Repeat Expire" />
 
             <TextBlock Text="Repeate max" />
-            <TextBox Text="{Binding Param4}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
         </StackPanel>
     </DataTemplate>
 
@@ -283,13 +280,13 @@
             <controls:EnumComboBox SelectedEnumValue="{Binding Param1}" EnumSource="{x:Type metadata:DispelType}" ToolTip="Dispel Type to trigger the event - *See Below for Dispel Bitmask Values*" />
 
             <TextBlock Text="Radius" />
-            <TextBox Text="{Binding Param2}" ToolTip="This is the Range in Yards the NPC will scan for nearby Friendlies being Crowd Controlled" />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="This is the Range in Yards the NPC will scan for nearby Friendlies being Crowd Controlled" />
 
             <TextBlock Text="Repeate min" />
-            <TextBox Text="{Binding Param3}" ToolTip="Minimum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" ToolTip="Minimum Time used to calculate Random Repeat Expire" />
 
             <TextBlock Text="Repeate max" />
-            <TextBox Text="{Binding Param4}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
         </StackPanel>
     </DataTemplate>
 
@@ -304,13 +301,13 @@
             <controls:TextBoxButton Value="{Binding Param1}" DialogType="{x:Type dialogs:SpellDialog}"  ToolTip="This is the SpellID That the Aura Check will look for (If it is missing this Aura)" />
 
             <TextBlock Text="Radius" />
-            <TextBox Text="{Binding Param2}" ToolTip="This is the Range in Yards the NPC will scan for nearby Friendlies (Faction is Friendly To) for the missing Aura." />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="This is the Range in Yards the NPC will scan for nearby Friendlies (Faction is Friendly To) for the missing Aura." />
 
             <TextBlock Text="Repeate min" />
-            <TextBox Text="{Binding Param3}" ToolTip="Minimum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" ToolTip="Minimum Time used to calculate Random Repeat Expire" />
 
             <TextBlock Text="Repeate max" />
-            <TextBox Text="{Binding Param4}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
         </StackPanel>
     </DataTemplate>
 
@@ -324,10 +321,10 @@
             <controls:TextBoxButton Value="{Binding Param1}" DialogType="{x:Type dialogs:CreatureDialog}" ToolTip="The CreatureID that the NPC is watching to spawn to trigger this event" />
 
             <TextBlock Text="Repeate min" />
-            <TextBox Text="{Binding Param2}"  ToolTip="Minimum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}"  ToolTip="Minimum Time used to calculate Random Repeat Expire" />
 
             <TextBlock Text="Repeate max" />
-            <TextBox Text="{Binding Param3}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
         </StackPanel>
     </DataTemplate>
 
@@ -338,16 +335,16 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="Mana max" />
-            <TextBox Text="{Binding Param1}" ToolTip="" />
+            <TextBox Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}" ToolTip="" />
 
             <TextBlock Text="Mana min" />
-            <TextBox Text="{Binding Param2}" ToolTip="" />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="" />
 
             <TextBlock Text="Repeate min" />
-            <TextBox Text="{Binding Param3}" ToolTip="" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" ToolTip="" />
 
             <TextBlock Text="Repeate max" />
-            <TextBox Text="{Binding Param4}" ToolTip="" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}" ToolTip="" />
         </StackPanel>
     </DataTemplate>
 
@@ -390,13 +387,13 @@
             <controls:TextBoxButton Value="{Binding Param1}" DialogType="{x:Type dialogs:SpellDialog}"  ToolTip="This is the SpellID That the Aura Check will look for" />
 
             <TextBlock Text="Ammount in stack" />
-            <TextBox Text="{Binding Param2}"  ToolTip="This is the amount of SpellID's auras at creature required for event expire." />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}"  ToolTip="This is the amount of SpellID's auras at creature required for event expire." />
 
             <TextBlock Text="Repeate min" />
-            <TextBox Text="{Binding Param3}"  ToolTip="Minimum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}"  ToolTip="Minimum Time used to calculate Random Repeat Expire" />
 
             <TextBlock Text="Repeate max" />
-            <TextBox Text="{Binding Param4}"  ToolTip="Maximum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}"  ToolTip="Maximum Time used to calculate Random Repeat Expire" />
         </StackPanel>
     </DataTemplate>
 
@@ -411,13 +408,13 @@
             <controls:TextBoxButton Value="{Binding Param1}" DialogType="{x:Type dialogs:SpellDialog}" ToolTip="This is the SpellID That the Aura Check will look for" />
 
             <TextBlock Text="Ammount in stack" />
-            <TextBox Text="{Binding Param2}"  ToolTip="This is the amount of SpellID's auras at target unit required for event expire." />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}"  ToolTip="This is the amount of SpellID's auras at target unit required for event expire." />
 
             <TextBlock Text="Repeate min" />
-            <TextBox Text="{Binding Param3}"  ToolTip="Minimum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}"  ToolTip="Minimum Time used to calculate Random Repeat Expire" />
 
             <TextBlock Text="Repeate max" />
-            <TextBox Text="{Binding Param4}"  ToolTip="Maximum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}"  ToolTip="Maximum Time used to calculate Random Repeat Expire" />
         </StackPanel>
     </DataTemplate>
 
@@ -431,10 +428,10 @@
             <controls:TextBoxButton Value="{Binding Param1}" DialogType="{x:Type dialogs:CreatureDialog}" ToolTip="The CreatureID that the NPC is watching die to trigger this event" />
 
             <TextBlock Text="Repeate min" />
-            <TextBox Text="{Binding Param2}" ToolTip="Minimum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="Minimum Time used to calculate Random Repeat Expire" />
 
             <TextBlock Text="Repeate max" />
-            <TextBox Text="{Binding Param3}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
         </StackPanel>
     </DataTemplate>
 
@@ -448,10 +445,10 @@
             <controls:TextBoxButton Value="{Binding Param1}" DialogType="{x:Type dialogs:CreatureDialog}" ToolTip="The CreatureID that the NPC is watching despawn to trigger this event" />
 
             <TextBlock Text="Repeate min" />
-            <TextBox Text="{Binding Param2}"  ToolTip="Minimum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}"  ToolTip="Minimum Time used to calculate Random Repeat Expire" />
 
             <TextBlock Text="Repeate max" />
-            <TextBox Text="{Binding Param3}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
         </StackPanel>
     </DataTemplate>
 
@@ -466,13 +463,13 @@
             <controls:TextBoxButton Value="{Binding Param1}" DialogType="{x:Type dialogs:SpellDialog}" ToolTip="" />
 
             <TextBlock Text="Ammount in stack" />
-            <TextBox Text="{Binding Param2}" ToolTip="" />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="" />
 
             <TextBlock Text="Repeate min" />
-            <TextBox Text="{Binding Param3}" ToolTip="" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" ToolTip="" />
 
             <TextBlock Text="Repeate max" />
-            <TextBox Text="{Binding Param4}" ToolTip="" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}" ToolTip="" />
         </StackPanel>
     </DataTemplate>
 
@@ -486,13 +483,13 @@
             <controls:TextBoxButton Value="{Binding Param1}" DialogType="{x:Type dialogs:SpellDialog}" ToolTip="This is the SpellID That the Aura Check will look for to be missing" />
 
             <TextBlock Text="Ammount in stack" />
-            <TextBox Text="{Binding Param2}" ToolTip="This is the amount or less of SpellID's auras at creature required for event expire." />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="This is the amount or less of SpellID's auras at creature required for event expire." />
 
             <TextBlock Text="Repeate min" />
-            <TextBox Text="{Binding Param3}" ToolTip="Minimum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" ToolTip="Minimum Time used to calculate Random Repeat Expire" />
 
             <TextBlock Text="Repeate max" />
-            <TextBox Text="{Binding Param4}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
         </StackPanel>
     </DataTemplate>
 
@@ -503,16 +500,16 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="Initial min" />
-            <TextBox Text="{Binding Param1}" ToolTip="Minumum Time used to calculate Random Initial Expire" />
+            <TextBox Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}" ToolTip="Minumum Time used to calculate Random Initial Expire" />
 
             <TextBlock Text="Initial max" />
-            <TextBox Text="{Binding Param2}"  ToolTip="Maximum Time used to calculate Random Initial Expire" />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}"  ToolTip="Maximum Time used to calculate Random Initial Expire" />
 
             <TextBlock Text="Repeate min" />
-            <TextBox Text="{Binding Param3}" ToolTip="Minimum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" ToolTip="Minimum Time used to calculate Random Repeat Expire" />
 
             <TextBlock Text="Repeate max" />
-            <TextBox Text="{Binding Param4}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}" ToolTip="Maximum Time used to calculate Random Repeat Expire" />
         </StackPanel>
     </DataTemplate>
 
@@ -527,7 +524,7 @@
             <controls:EnumComboBox SelectedEnumValue="{Binding Param1}" EnumSource="{x:Type metadata:EventType}" ToolTip="Only expire when an AIEvent of this type is received. Supported types see CreatureAI.h enum AIEventType" />
 
             <TextBlock Text="Sender entry" />
-            <TextBox Text="{Binding Param2}" ToolTip="If != 0 then only expire when the AIEvent is received from a creature of this entry" />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="If != 0 then only expire when the AIEvent is received from a creature of this entry" />
             <controls:TextBoxButton Value="{Binding Param2}" DialogType="{x:Type dialogs:CreatureDialog}" />
         </StackPanel>
     </DataTemplate>
@@ -540,32 +537,32 @@
             </TextBlock>
             <Separator />
             <TextBlock Text="EnergyMax%" />
-            <TextBox Text="{Binding Param1}" ToolTip="Maximum Energy% That will trigger this Event to Expire" />
+            <TextBox Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}" ToolTip="Maximum Energy% That will trigger this Event to Expire" />
 
             <TextBlock Text="EnergyMin%" />
-            <TextBox Text="{Binding Param2}" ToolTip="Minimum Energy% That will trigger this Event to Expire" />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" ToolTip="Minimum Energy% That will trigger this Event to Expire" />
 
             <TextBlock Text="RepeatMin" />
-            <TextBox Text="{Binding Param3}" ToolTip="Minimum Time used to calculate Random Repeat Event Expire" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" ToolTip="Minimum Time used to calculate Random Repeat Event Expire" />
 
             <TextBlock Text="RepeatMax" />
-            <TextBox Text="{Binding Param4}" ToolTip="Maximum Time used to calculate Random Repeat Event Expire" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}" ToolTip="Maximum Time used to calculate Random Repeat Event Expire" />
         </StackPanel>
     </DataTemplate>
 
     <DataTemplate x:Key="EventType.NOT_IMPLEMENTED">
         <StackPanel>
             <TextBlock Text="Param1" />
-            <TextBox Text="{Binding Param1}" />
+            <TextBox Text="{Binding Param1, UpdateSourceTrigger=PropertyChanged}" />
 
             <TextBlock Text="Param2" />
-            <TextBox Text="{Binding Param2}" />
+            <TextBox Text="{Binding Param2, UpdateSourceTrigger=PropertyChanged}" />
 
             <TextBlock Text="Param3" />
-            <TextBox Text="{Binding Param3}" />
+            <TextBox Text="{Binding Param3, UpdateSourceTrigger=PropertyChanged}" />
 
             <TextBlock Text="Param4" />
-            <TextBox Text="{Binding Param4}" />
+            <TextBox Text="{Binding Param4, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
     </DataTemplate>
 </ResourceDictionary>

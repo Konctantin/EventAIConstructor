@@ -5,8 +5,15 @@
     <DataTemplate DataType="{x:Type controls:ComboBoxFlagsItem}">
         <StackPanel Orientation="Horizontal">
             <CheckBox  IsChecked="{Binding IsChecked, Mode=TwoWay}" />
-            <TextBlock Width="70" Text="{Binding RawValue, StringFormat={} 0x{0:X8}}" Foreground="#FFA5129F" />
+            <TextBlock Width="60" Text="{Binding RawValue, StringFormat={}{0:X8}}" />
             <TextBlock Text="{Binding Value}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type controls:EnumComboBoxItem}">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Width="40" Text="{Binding Value}" />
+            <TextBlock Text="{Binding Name}" />
         </StackPanel>
     </DataTemplate>
 
