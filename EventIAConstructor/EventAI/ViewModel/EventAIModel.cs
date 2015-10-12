@@ -72,6 +72,7 @@ namespace EventIAConstructor.EventAI.ViewModel
             {
                 return
                     $"DELETE FROM creature_ai_scripts WHERE id = {Id};{Environment.NewLine}"
+                    + $"UPDATE creature_template SET AIName = 'EventAI' WHERE entry = {CreatureId};{Environment.NewLine}"
                     + $"INSERT INTO creature_ai_scripts VALUES("
                     + $"{Id}, {CreatureId}, {Event.Type}, {PhaseMask}, {Chance}, {EventFlags}"
                     + $", {Event.Param1}, {Event.Param2}, {Event.Param3}, {Event.Param4}"
