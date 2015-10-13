@@ -1,5 +1,4 @@
 ﻿using EventIAConstructor.Common;
-using EventIAConstructor.EventAI.Metadata;
 using System;
 
 namespace EventIAConstructor.EventAI.ViewModel

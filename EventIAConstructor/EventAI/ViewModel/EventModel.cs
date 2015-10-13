@@ -1,5 +1,4 @@
 ﻿using EventIAConstructor.Common;
-using EventIAConstructor.EventAI.Metadata;
 using System;
 
 namespace EventIAConstructor.EventAI.ViewModel
@@ -18,6 +17,7 @@ namespace EventIAConstructor.EventAI.ViewModel
 
             if (values.Length != 4)
                 throw new ArgumentOutOfRangeException(nameof(values), "4 params");
+
             param1 = values[0];
             param2 = values[1];
             param3 = values[2];

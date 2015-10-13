@@ -20,7 +20,7 @@ namespace EventIAConstructor.EventAI.ViewModel
                     if (template != null)
                         return template;
                 }
-                return element.FindResource("EventType.NOT_IMPLEMENTED") as DataTemplate;
+                return element.TryFindResource("EventType.NOT_IMPLEMENTED") as DataTemplate;
             }
 
             return null;
@@ -39,12 +39,12 @@ namespace EventIAConstructor.EventAI.ViewModel
                 var eventType = (EventType)modelItem.Type;
                 if (modelItem != null && eventType == EventType.RECEIVE_EMOTE)
                 {
-                    var condition = (ConditionType)modelItem.Param2;
-                    var template = element.TryFindResource($"ConditionType.{condition}") as DataTemplate;
+                    var name = (ConditionType)modelItem.Param2;
+                    var template = element.TryFindResource($"ConditionType.{name}") as DataTemplate;
                     if (template != null)
                         return template;
                 }
-                return element.FindResource("ConditionType.NOT_IMPLEMENTED") as DataTemplate;
+                return element.TryFindResource("ConditionType.NOT_IMPLEMENTED") as DataTemplate;
             }
 
             return null;
@@ -67,7 +67,7 @@ namespace EventIAConstructor.EventAI.ViewModel
                     if (template != null)
                         return template;
                 }
-                return element.FindResource("ActionType.NOT_IMPLEMENTED") as DataTemplate;
+                return element.TryFindResource("ActionType.NOT_IMPLEMENTED") as DataTemplate;
             }
 
             return null;

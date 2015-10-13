@@ -83,10 +83,13 @@ namespace EventIAConstructor.EventAI.ViewModel
             }
         }
 
+        public bool IsModifyed { get; set; }
+
         internal void UpdateAll([CallerMemberName] string propertyName = "")
         {
             OnPropertyChanged(propertyName);
             OnPropertyChanged("Sql");
+            OnPropertyChanged("IsModifyed");
         }
     }
 }
