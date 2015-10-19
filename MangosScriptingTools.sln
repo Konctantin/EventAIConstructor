@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventIAConstructor", "EventIAConstructor\EventIAConstructor.csproj", "{F29066B9-F410-4139-B979-3010512A4459}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MangosScriptingTools", "MangosScriptingTools\MangosScriptingTools.csproj", "{F29066B9-F410-4139-B979-3010512A4459}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
