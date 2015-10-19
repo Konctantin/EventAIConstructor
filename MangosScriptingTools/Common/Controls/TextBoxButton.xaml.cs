@@ -54,7 +54,7 @@ namespace EventIAConstructor.Common.Controls
             }
 
             window.Owner = Application.Current.MainWindow;
-            window.Title = textBox.Text;
+            //window.Title = textBox.Text;
             (window as IDialog).Id = Value;
             if (window.ShowDialog() == true)
             {

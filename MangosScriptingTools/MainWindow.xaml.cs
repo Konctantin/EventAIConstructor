@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using MySql.Data.MySqlClient;
 using EventIAConstructor.EventAI.ViewModel;
+using EventIAConstructor.Properties;
 
 namespace EventIAConstructor
 {
@@ -10,7 +11,7 @@ namespace EventIAConstructor
         {
             InitializeComponent();
 
-            using (var conn = new MySqlConnection("server=localhost;user id=root; password=; database=mangos; pooling=false"))
+            using (var conn = new MySqlConnection(Settings.Default.ConnectionString))
             {
                 conn.Open();
                 using (var command = new MySqlCommand("select * from creature_ai_scripts", conn))
